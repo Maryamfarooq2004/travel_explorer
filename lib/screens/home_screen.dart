@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:iconsax/iconsax.dart';
+
 import '../data/sample_data.dart';
 import '../widgets/category_card.dart';
 import '../widgets/destination_card.dart';
@@ -62,9 +62,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ],
                 ),
-                
+
                 const SizedBox(height: 25),
-                
+
                 // Search Bar
                 Container(
                   padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -89,15 +89,13 @@ class _HomeScreenState extends State<HomeScreen> {
                       hintText: 'Search destinations...',
                       border: InputBorder.none,
                       icon: const Icon(Icons.search, color: Colors.grey),
-                      hintStyle: GoogleFonts.poppins(
-                        color: Colors.grey[400],
-                      ),
+                      hintStyle: GoogleFonts.poppins(color: Colors.grey[400]),
                     ),
                   ),
                 ),
-                
+
                 const SizedBox(height: 30),
-                
+
                 // Categories Section
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -113,20 +111,17 @@ class _HomeScreenState extends State<HomeScreen> {
                       onPressed: () {},
                       child: Row(
                         children: [
-                          Icon(Iconsax.filter, size: 20),
+                          Icon(Icons.filter_list, size: 20),
                           const SizedBox(width: 5),
-                          Text(
-                            'Filter',
-                            style: GoogleFonts.poppins(),
-                          ),
+                          Text('Filter', style: GoogleFonts.poppins()),
                         ],
                       ),
                     ),
                   ],
                 ),
-                
+
                 const SizedBox(height: 15),
-                
+
                 // Categories Grid
                 GridView.count(
                   crossAxisCount: 2,
@@ -138,7 +133,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   children: [
                     CategoryCard(
                       title: 'Mountains',
-                      icon: Iconsax.mountain,
+                      icon: Icons.landscape,
                       color: const Color(0xFF4A90E2),
                       onTap: () {
                         Navigator.pushNamed(
@@ -150,7 +145,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     CategoryCard(
                       title: 'Beaches',
-                      icon: Iconsax.sun_1,
+                      icon: Icons.beach_access,
                       color: const Color(0xFF50C9C3),
                       onTap: () {
                         Navigator.pushNamed(
@@ -162,7 +157,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     CategoryCard(
                       title: 'Historical',
-                      icon: Iconsax.building,
+                      icon: Icons.account_balance,
                       color: const Color(0xFFE07A5F),
                       onTap: () {
                         Navigator.pushNamed(
@@ -174,7 +169,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     CategoryCard(
                       title: 'Lakes',
-                      icon: Iconsax.drop,
+                      icon: Icons.water,
                       color: const Color(0xFF81B29A),
                       onTap: () {
                         Navigator.pushNamed(
@@ -186,9 +181,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ],
                 ),
-                
+
                 const SizedBox(height: 30),
-                
+
                 // Recommended Section
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -202,9 +197,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ],
                 ),
-                
+
                 const SizedBox(height: 15),
-                
+
                 // Recommended Destinations
                 ListView.builder(
                   shrinkWrap: true,
@@ -232,7 +227,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
       ),
-      
+
       // Bottom Navigation Bar
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
@@ -247,22 +242,13 @@ class _HomeScreenState extends State<HomeScreen> {
           }
         },
         items: const [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
           BottomNavigationBarItem(
-            icon: Icon(Iconsax.home),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Iconsax.heart),
+            icon: Icon(Icons.favorite),
             label: 'Favorites',
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Iconsax.search_normal),
-            label: 'Explore',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Iconsax.user),
-            label: 'Profile',
-          ),
+          BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Explore'),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
         ],
       ),
     );

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+
 import '../models/destination.dart';
 import '../models/review.dart';
 import '../utils/favorites_manager.dart';
@@ -26,8 +27,11 @@ class _ReviewsScreenState extends State<ReviewsScreen> {
   }
 
   Future<void> _loadReviews() async {
-    final destination = ModalRoute.of(context)!.settings.arguments as Destination;
-    final loadedReviews = await FavoritesManager.getReviewsForDestination(destination.id);
+    final destination =
+        ModalRoute.of(context)!.settings.arguments as Destination;
+    final loadedReviews = await FavoritesManager.getReviewsForDestination(
+      destination.id,
+    );
     setState(() {
       reviews = loadedReviews;
     });
@@ -46,7 +50,8 @@ class _ReviewsScreenState extends State<ReviewsScreen> {
       return;
     }
 
-    final destination = ModalRoute.of(context)!.settings.arguments as Destination;
+    final destination =
+        ModalRoute.of(context)!.settings.arguments as Destination;
     final newReview = Review(
       id: DateTime.now().toString(),
       userName: _nameController.text,
@@ -57,7 +62,7 @@ class _ReviewsScreenState extends State<ReviewsScreen> {
     );
 
     await FavoritesManager.addReview(newReview);
-    
+
     _nameController.clear();
     _commentController.clear();
     setState(() {
@@ -78,8 +83,6 @@ class _ReviewsScreenState extends State<ReviewsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final destination = ModalRoute.of(context)!.settings.arguments as Destination;
-
     return Scaffold(
       backgroundColor: Colors.grey[50],
       appBar: AppBar(
@@ -121,7 +124,8 @@ class _ReviewsScreenState extends State<ReviewsScreen> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
                                     review.userName,
@@ -157,7 +161,7 @@ class _ReviewsScreenState extends State<ReviewsScreen> {
                     },
                   ),
           ),
-          
+
           // Add Review Form
           Container(
             padding: const EdgeInsets.all(20),
@@ -229,7 +233,9 @@ class _ReviewsScreenState extends State<ReviewsScreen> {
                             });
                           },
                           icon: Icon(
-                            index < _userRating ? Icons.star : Icons.star_border,
+                            index < _userRating
+                                ? Icons.star
+                                : Icons.star_border,
                             color: Colors.amber,
                           ),
                         );

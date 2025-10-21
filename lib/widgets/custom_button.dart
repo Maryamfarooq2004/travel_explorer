@@ -24,18 +24,13 @@ class CustomButton extends StatelessWidget {
         backgroundColor: color ?? const Color(0xFF4A90E2),
         foregroundColor: Colors.white,
         padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 16),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(30),
-        ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
         elevation: 5,
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          if (icon != null) ...[
-            Icon(icon, size: 20),
-            const SizedBox(width: 8),
-          ],
+          if (icon != null) ...[Icon(icon, size: 20), const SizedBox(width: 8)],
           Text(
             text,
             style: GoogleFonts.poppins(

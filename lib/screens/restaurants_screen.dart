@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:iconsax/iconsax.dart';
-import '../models/destination.dart';
+
 import '../data/sample_data.dart';
+import '../models/destination.dart';
 
 /// Restaurants Screen showing nearby restaurants
 class RestaurantsScreen extends StatelessWidget {
@@ -10,7 +10,8 @@ class RestaurantsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final destination = ModalRoute.of(context)!.settings.arguments as Destination;
+    final destination =
+        ModalRoute.of(context)!.settings.arguments as Destination;
 
     return Scaffold(
       backgroundColor: Colors.grey[50],
@@ -29,10 +30,7 @@ class RestaurantsScreen extends StatelessWidget {
           children: [
             Text(
               'Best restaurants near ${destination.name}',
-              style: GoogleFonts.poppins(
-                fontSize: 16,
-                color: Colors.grey[600],
-              ),
+              style: GoogleFonts.poppins(fontSize: 16, color: Colors.grey[600]),
             ),
             const SizedBox(height: 20),
             Expanded(
@@ -85,7 +83,7 @@ class RestaurantsScreen extends StatelessWidget {
                                 Row(
                                   children: [
                                     const Icon(
-                                      Iconsax.location,
+                                      Icons.location_on,
                                       size: 14,
                                       color: Colors.grey,
                                     ),
@@ -110,7 +108,8 @@ class RestaurantsScreen extends StatelessWidget {
                                 ),
                                 const SizedBox(height: 8),
                                 Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
                                   children: [
                                     Row(
                                       children: [

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:iconsax/iconsax.dart';
+
 import '../models/destination.dart';
 import '../utils/favorites_manager.dart';
 import '../widgets/custom_button.dart';
@@ -24,7 +24,8 @@ class _DetailsScreenState extends State<DetailsScreen> {
   }
 
   Future<void> _checkFavoriteStatus() async {
-    final destination = ModalRoute.of(context)!.settings.arguments as Destination;
+    final destination =
+        ModalRoute.of(context)!.settings.arguments as Destination;
     final favorite = await FavoritesManager.isFavorite(destination.id);
     setState(() {
       isFavorite = favorite;
@@ -32,18 +33,19 @@ class _DetailsScreenState extends State<DetailsScreen> {
   }
 
   Future<void> _toggleFavorite() async {
-    final destination = ModalRoute.of(context)!.settings.arguments as Destination;
-    
+    final destination =
+        ModalRoute.of(context)!.settings.arguments as Destination;
+
     if (isFavorite) {
       await FavoritesManager.removeFavorite(destination.id);
     } else {
       await FavoritesManager.addFavorite(destination);
     }
-    
+
     setState(() {
       isFavorite = !isFavorite;
     });
-    
+
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Text(
@@ -57,7 +59,8 @@ class _DetailsScreenState extends State<DetailsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final destination = ModalRoute.of(context)!.settings.arguments as Destination;
+    final destination =
+        ModalRoute.of(context)!.settings.arguments as Destination;
 
     return Scaffold(
       body: CustomScrollView(
@@ -108,7 +111,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
               ),
             ],
           ),
-          
+
           // Content
           SliverToBoxAdapter(
             child: Padding(
@@ -124,14 +127,14 @@ class _DetailsScreenState extends State<DetailsScreen> {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  
+
                   const SizedBox(height: 10),
-                  
+
                   // Location
                   Row(
                     children: [
                       const Icon(
-                        Iconsax.location,
+                        Icons.location_on,
                         size: 18,
                         color: Color(0xFF4A90E2),
                       ),
@@ -147,9 +150,9 @@ class _DetailsScreenState extends State<DetailsScreen> {
                       ),
                     ],
                   ),
-                  
+
                   const SizedBox(height: 15),
-                  
+
                   // Rating
                   Row(
                     children: [
@@ -164,9 +167,9 @@ class _DetailsScreenState extends State<DetailsScreen> {
                       ),
                     ],
                   ),
-                  
+
                   const SizedBox(height: 25),
-                  
+
                   // Details Header
                   Text(
                     'Details',
@@ -175,9 +178,9 @@ class _DetailsScreenState extends State<DetailsScreen> {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  
+
                   const SizedBox(height: 10),
-                  
+
                   // Description
                   Text(
                     destination.description,
@@ -188,13 +191,13 @@ class _DetailsScreenState extends State<DetailsScreen> {
                     ),
                     textAlign: TextAlign.justify,
                   ),
-                  
+
                   const SizedBox(height: 30),
-                  
+
                   // Action Buttons
                   CustomButton(
                     text: 'Find Hotels Nearby',
-                    icon: Iconsax.building,
+                    icon: Icons.hotel,
                     color: const Color(0xFF4A90E2),
                     onPressed: () {
                       Navigator.pushNamed(
@@ -204,12 +207,12 @@ class _DetailsScreenState extends State<DetailsScreen> {
                       );
                     },
                   ),
-                  
+
                   const SizedBox(height: 15),
-                  
+
                   CustomButton(
                     text: 'View Restaurants',
-                    icon: Iconsax.cup,
+                    icon: Icons.restaurant,
                     color: const Color(0xFF50C9C3),
                     onPressed: () {
                       Navigator.pushNamed(
@@ -219,12 +222,12 @@ class _DetailsScreenState extends State<DetailsScreen> {
                       );
                     },
                   ),
-                  
+
                   const SizedBox(height: 15),
-                  
+
                   CustomButton(
                     text: 'View Reviews',
-                    icon: Iconsax.message,
+                    icon: Icons.rate_review,
                     color: const Color(0xFFE07A5F),
                     onPressed: () {
                       Navigator.pushNamed(
@@ -234,7 +237,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                       );
                     },
                   ),
-                  
+
                   const SizedBox(height: 30),
                 ],
               ),

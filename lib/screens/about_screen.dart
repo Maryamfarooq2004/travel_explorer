@@ -24,7 +24,7 @@ class AboutScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               const SizedBox(height: 30),
-              
+
               // App Icon
               Container(
                 padding: const EdgeInsets.all(25),
@@ -39,15 +39,11 @@ class AboutScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-                child: const Icon(
-                  Icons.explore,
-                  size: 80,
-                  color: Colors.white,
-                ),
+                child: const Icon(Icons.explore, size: 80, color: Colors.white),
               ),
-              
+
               const SizedBox(height: 30),
-              
+
               // App Name
               Text(
                 'Travel Explorer Pakistan',
@@ -58,9 +54,9 @@ class AboutScreen extends StatelessWidget {
                 ),
                 textAlign: TextAlign.center,
               ),
-              
+
               const SizedBox(height: 10),
-              
+
               // Version
               Text(
                 'Version 1.0.0',
@@ -69,9 +65,9 @@ class AboutScreen extends StatelessWidget {
                   color: Colors.grey[600],
                 ),
               ),
-              
+
               const SizedBox(height: 40),
-              
+
               // Description Card
               Container(
                 padding: const EdgeInsets.all(20),
@@ -123,9 +119,9 @@ class AboutScreen extends StatelessWidget {
                   ],
                 ),
               ),
-              
+
               const SizedBox(height: 30),
-              
+
               // Team Card
               Container(
                 padding: const EdgeInsets.all(20),
@@ -169,9 +165,9 @@ class AboutScreen extends StatelessWidget {
                   ],
                 ),
               ),
-              
+
               const SizedBox(height: 40),
-              
+
               // Footer
               Text(
                 'Made with ❤️ in Pakistan',
@@ -180,9 +176,9 @@ class AboutScreen extends StatelessWidget {
                   color: Colors.grey[600],
                 ),
               ),
-              
+
               const SizedBox(height: 10),
-              
+
               Text(
                 '© 2025 Travel Explorer Pakistan',
                 style: GoogleFonts.poppins(
@@ -190,7 +186,7 @@ class AboutScreen extends StatelessWidget {
                   color: Colors.grey[500],
                 ),
               ),
-              
+
               const SizedBox(height: 40),
             ],
           ),
@@ -204,19 +200,12 @@ class AboutScreen extends StatelessWidget {
       padding: const EdgeInsets.only(bottom: 8),
       child: Row(
         children: [
-          const Icon(
-            Icons.check_circle,
-            size: 20,
-            color: Color(0xFF4A90E2),
-          ),
+          const Icon(Icons.check_circle, size: 20, color: Color(0xFF4A90E2)),
           const SizedBox(width: 10),
           Expanded(
             child: Text(
               text,
-              style: GoogleFonts.poppins(
-                fontSize: 13,
-                color: Colors.grey[700],
-              ),
+              style: GoogleFonts.poppins(fontSize: 13, color: Colors.grey[700]),
             ),
           ),
         ],
@@ -235,11 +224,7 @@ class AboutScreen extends StatelessWidget {
               color: const Color(0xFF4A90E2).withOpacity(0.1),
               borderRadius: BorderRadius.circular(10),
             ),
-            child: Icon(
-              icon,
-              color: const Color(0xFF4A90E2),
-              size: 24,
-            ),
+            child: Icon(icon, color: const Color(0xFF4A90E2), size: 24),
           ),
           const SizedBox(width: 15),
           Expanded(

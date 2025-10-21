@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+
 import '../data/sample_data.dart';
-import '../models/destination.dart';
 import '../widgets/destination_card.dart';
 
 /// Destination List Screen filtered by category
@@ -12,7 +12,7 @@ class DestinationListScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     // Get category from route arguments
     final category = ModalRoute.of(context)!.settings.arguments as String;
-    
+
     // Filter destinations by category
     final filteredDestinations = destinations
         .where((dest) => dest.category == category)
@@ -36,10 +36,7 @@ class DestinationListScreen extends StatelessWidget {
           children: [
             Text(
               '${filteredDestinations.length} destinations found',
-              style: GoogleFonts.poppins(
-                fontSize: 16,
-                color: Colors.grey[600],
-              ),
+              style: GoogleFonts.poppins(fontSize: 16, color: Colors.grey[600]),
             ),
             const SizedBox(height: 20),
             Expanded(
@@ -54,11 +51,12 @@ class DestinationListScreen extends StatelessWidget {
                       ),
                     )
                   : GridView.builder(
-                      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 1,
-                        mainAxisSpacing: 15,
-                        childAspectRatio: 1.8,
-                      ),
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 1,
+                            mainAxisSpacing: 15,
+                            childAspectRatio: 1.8,
+                          ),
                       itemCount: filteredDestinations.length,
                       itemBuilder: (context, index) {
                         final destination = filteredDestinations[index];

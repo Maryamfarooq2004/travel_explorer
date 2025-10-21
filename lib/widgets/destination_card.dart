@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+
 import '../models/destination.dart';
 
 /// Reusable destination card widget
@@ -43,7 +44,11 @@ class DestinationCard extends StatelessWidget {
                     width: double.infinity,
                     height: 200,
                     color: Colors.grey[300],
-                    child: const Icon(Icons.image, size: 50, color: Colors.grey),
+                    child: const Icon(
+                      Icons.image,
+                      size: 50,
+                      color: Colors.grey,
+                    ),
                   );
                 },
               ),
@@ -107,18 +112,17 @@ class DestinationCard extends StatelessWidget {
                 top: 12,
                 right: 12,
                 child: Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 10,
+                    vertical: 6,
+                  ),
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(20),
                   ),
                   child: Row(
                     children: [
-                      const Icon(
-                        Icons.star,
-                        size: 16,
-                        color: Colors.amber,
-                      ),
+                      const Icon(Icons.star, size: 16, color: Colors.amber),
                       const SizedBox(width: 4),
                       Text(
                         destination.rating.toString(),

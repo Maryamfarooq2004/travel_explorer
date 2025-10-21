@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 /// Login Screen with social login options
 class LoginScreen extends StatefulWidget {
@@ -21,10 +21,7 @@ class _LoginScreenState extends State<LoginScreen> {
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
-            colors: [
-              Colors.white,
-              const Color(0xFF4A90E2).withOpacity(0.1),
-            ],
+            colors: [Colors.white, const Color(0xFF4A90E2).withOpacity(0.1)],
           ),
         ),
         child: SafeArea(
@@ -35,21 +32,23 @@ class _LoginScreenState extends State<LoginScreen> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   const SizedBox(height: 40),
-                  
+
                   // Header Image
                   Container(
                     height: 200,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
                       image: const DecorationImage(
-                        image: NetworkImage('https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=800'),
+                        image: NetworkImage(
+                          'https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=800',
+                        ),
                         fit: BoxFit.cover,
                       ),
                     ),
                   ),
-                  
+
                   const SizedBox(height: 40),
-                  
+
                   // Title
                   Text(
                     'Travel',
@@ -59,7 +58,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       color: const Color(0xFF4A90E2),
                     ),
                   ),
-                  
+
                   Text(
                     'You are looking for a trip',
                     style: GoogleFonts.poppins(
@@ -67,12 +66,15 @@ class _LoginScreenState extends State<LoginScreen> {
                       color: Colors.grey[700],
                     ),
                   ),
-                  
+
                   const SizedBox(height: 40),
-                  
+
                   // Phone Number Input
                   Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 20,
+                      vertical: 5,
+                    ),
                     decoration: BoxDecoration(
                       color: Colors.grey[100],
                       borderRadius: BorderRadius.circular(15),
@@ -126,9 +128,9 @@ class _LoginScreenState extends State<LoginScreen> {
                       ],
                     ),
                   ),
-                  
+
                   const SizedBox(height: 25),
-                  
+
                   // Send OTP Button
                   SizedBox(
                     width: double.infinity,
@@ -154,9 +156,9 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     ),
                   ),
-                  
+
                   const SizedBox(height: 30),
-                  
+
                   // OR Divider
                   Row(
                     children: [
@@ -174,9 +176,9 @@ class _LoginScreenState extends State<LoginScreen> {
                       Expanded(child: Divider(color: Colors.grey[400])),
                     ],
                   ),
-                  
+
                   const SizedBox(height: 25),
-                  
+
                   // Continue with Apple
                   SocialLoginButton(
                     icon: FontAwesomeIcons.apple,
@@ -186,9 +188,9 @@ class _LoginScreenState extends State<LoginScreen> {
                       Navigator.pushReplacementNamed(context, '/home');
                     },
                   ),
-                  
+
                   const SizedBox(height: 15),
-                  
+
                   // Continue with Facebook
                   SocialLoginButton(
                     icon: FontAwesomeIcons.facebook,
@@ -198,9 +200,9 @@ class _LoginScreenState extends State<LoginScreen> {
                       Navigator.pushReplacementNamed(context, '/home');
                     },
                   ),
-                  
+
                   const SizedBox(height: 15),
-                  
+
                   // Continue with Google
                   SocialLoginButton(
                     icon: FontAwesomeIcons.google,
@@ -212,9 +214,9 @@ class _LoginScreenState extends State<LoginScreen> {
                       Navigator.pushReplacementNamed(context, '/home');
                     },
                   ),
-                  
+
                   const SizedBox(height: 30),
-                  
+
                   // Terms
                   Text.rich(
                     TextSpan(
@@ -225,7 +227,8 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                       children: [
                         TextSpan(
-                          text: 'Terms of Service · Privacy Policy · Content Policy',
+                          text:
+                              'Terms of Service · Privacy Policy · Content Policy',
                           style: GoogleFonts.poppins(
                             fontSize: 12,
                             color: const Color(0xFF4A90E2),
@@ -286,10 +289,7 @@ class SocialLoginButton extends StatelessWidget {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(15),
           ),
-          side: BorderSide(
-            color: borderColor ?? backgroundColor,
-            width: 1,
-          ),
+          side: BorderSide(color: borderColor ?? backgroundColor, width: 1),
         ),
       ),
     );

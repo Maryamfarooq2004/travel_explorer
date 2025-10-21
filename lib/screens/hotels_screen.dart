@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:iconsax/iconsax.dart';
-import '../models/destination.dart';
+
 import '../data/sample_data.dart';
+import '../models/destination.dart';
 
 /// Hotels Screen showing nearby hotels
 class HotelsScreen extends StatelessWidget {
@@ -10,7 +10,8 @@ class HotelsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final destination = ModalRoute.of(context)!.settings.arguments as Destination;
+    final destination =
+        ModalRoute.of(context)!.settings.arguments as Destination;
 
     return Scaffold(
       backgroundColor: Colors.grey[50],
@@ -29,10 +30,7 @@ class HotelsScreen extends StatelessWidget {
           children: [
             Text(
               'Best hotels near ${destination.name}',
-              style: GoogleFonts.poppins(
-                fontSize: 16,
-                color: Colors.grey[600],
-              ),
+              style: GoogleFonts.poppins(fontSize: 16, color: Colors.grey[600]),
             ),
             const SizedBox(height: 20),
             Expanded(
@@ -84,7 +82,7 @@ class HotelsScreen extends StatelessWidget {
                               Row(
                                 children: [
                                   const Icon(
-                                    Iconsax.location,
+                                    Icons.location_on,
                                     size: 16,
                                     color: Colors.grey,
                                   ),
@@ -102,7 +100,8 @@ class HotelsScreen extends StatelessWidget {
                               ),
                               const SizedBox(height: 10),
                               Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
                                   Row(
                                     children: [
