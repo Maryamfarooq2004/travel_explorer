@@ -38,7 +38,7 @@ final List<Destination> destinations = [
     description:
         'Gateway to some of the highest peaks on Earth, including K2. Home to beautiful lakes and ancient forts.',
     imageUrl:
-        'https://images.unsplash.com/photo-1570284613060-766c33f6f742?w=800',
+        'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800',
     category: 'Mountains',
     rating: 4.7,
     hotels: ['hotel4'],
@@ -211,7 +211,7 @@ final List<Hotel> hotels = [
     location: 'Lahore, Punjab',
     rating: 4.7,
     imageUrl:
-        'https://images.unsplash.com/photo-1569670517782-46b1e5c96e73?w=800',
+        'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800',
     price: 'PKR 22,000/night',
     description:
         'Luxury hotel in the heart of Lahore, near all major attractions.',

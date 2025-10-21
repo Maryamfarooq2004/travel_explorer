@@ -238,7 +238,7 @@ class _HomeScreenState extends State<HomeScreen> {
           if (index == 1) {
             Navigator.pushNamed(context, '/favorites');
           } else if (index == 3) {
-            Navigator.pushNamed(context, '/about');
+            Navigator.pushNamed(context, '/profile');
           }
         },
         items: const [

@@ -8,6 +8,7 @@ import 'screens/favorites_screen.dart';
 import 'screens/home_screen.dart';
 import 'screens/hotels_screen.dart';
 import 'screens/login_screen.dart';
+import 'screens/profile_screen.dart';
 import 'screens/restaurants_screen.dart';
 import 'screens/reviews_screen.dart';
 // Screens
@@ -60,6 +61,7 @@ class TravelExplorerApp extends StatelessWidget {
         '/reviews': (context) => const ReviewsScreen(),
         '/favorites': (context) => const FavoritesScreen(),
         '/about': (context) => const AboutScreen(),
+        '/profile': (context) => const ProfileScreen(),
       },
     );
   }
