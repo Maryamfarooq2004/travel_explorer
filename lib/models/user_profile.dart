@@ -9,7 +9,6 @@ class UserProfile {
   final int placesVisited;
   final int countriesExplored;
   final int tripsThisMonth;
-  final List<TravelBadge> badges;
   final List<VisitedPlace> visitedPlaces;
 
   UserProfile({
@@ -23,24 +22,10 @@ class UserProfile {
     required this.placesVisited,
     required this.countriesExplored,
     required this.tripsThisMonth,
-    required this.badges,
     required this.visitedPlaces,
   });
 }
 
-class TravelBadge {
-  final String icon;
-  final String title;
-  final String description;
-  final bool earned;
-
-  TravelBadge({
-    required this.icon,
-    required this.title,
-    required this.description,
-    required this.earned,
-  });
-}
 
 class VisitedPlace {
   final String name;
@@ -70,44 +55,7 @@ final sampleUserProfile = UserProfile(
   placesVisited: 42,
   countriesExplored: 7,
   tripsThisMonth: 3,
-  badges: [
-    TravelBadge(
-      icon: '🏔️',
-      title: 'Mountain Conqueror',
-      description: 'Visited 10 mountain locations',
-      earned: true,
-    ),
-    TravelBadge(
-      icon: '🏝️',
-      title: 'Island Hopper',
-      description: 'Visited 5 beaches in one trip',
-      earned: true,
-    ),
-    TravelBadge(
-      icon: '🚀',
-      title: 'Explorer of the Month',
-      description: 'Visited 8 new places this month',
-      earned: true,
-    ),
-    TravelBadge(
-      icon: '🏛️',
-      title: 'History Buff',
-      description: 'Explored 15 historical sites',
-      earned: true,
-    ),
-    TravelBadge(
-      icon: '📸',
-      title: 'Photo Hunter',
-      description: 'Shared 100+ travel photos',
-      earned: false,
-    ),
-    TravelBadge(
-      icon: '🌏',
-      title: 'Globe Trotter',
-      description: 'Visit 10 countries',
-      earned: false,
-    ),
-  ],
+ 
   visitedPlaces: [
     VisitedPlace(
       name: 'Naran Kaghan',

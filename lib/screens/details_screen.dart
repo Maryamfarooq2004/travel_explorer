@@ -49,7 +49,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Text(
-          isFavorite ? 'Added to favorites' : 'Removed from favorites',
+          isFavorite ? 'Added to wishlist' : 'Removed from wishlist',
           style: GoogleFonts.poppins(),
         ),
         duration: const Duration(seconds: 2),
@@ -218,21 +218,6 @@ class _DetailsScreenState extends State<DetailsScreen> {
                       Navigator.pushNamed(
                         context,
                         '/restaurants',
-                        arguments: destination,
-                      );
-                    },
-                  ),
-
-                  const SizedBox(height: 15),
-
-                  CustomButton(
-                    text: 'View Reviews',
-                    icon: Icons.rate_review,
-                    color: const Color(0xFFE07A5F),
-                    onPressed: () {
-                      Navigator.pushNamed(
-                        context,
-                        '/reviews',
                         arguments: destination,
                       );
                     },

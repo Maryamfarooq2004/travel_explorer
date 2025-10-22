@@ -236,6 +236,8 @@ class _HomeScreenState extends State<HomeScreen> {
         currentIndex: 0,
         onTap: (index) {
           if (index == 1) {
+            Navigator.pushNamed(context, '/explore');
+          } else if (index == 2) {
             Navigator.pushNamed(context, '/favorites');
           } else if (index == 3) {
             Navigator.pushNamed(context, '/profile');
@@ -243,11 +245,11 @@ class _HomeScreenState extends State<HomeScreen> {
         },
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+          BottomNavigationBarItem(icon: Icon(Icons.explore), label: 'Cities'),
           BottomNavigationBarItem(
-            icon: Icon(Icons.favorite),
-            label: 'Favorites',
+            icon: Icon(Icons.favorite_border),
+            label: 'Wishlist',
           ),
-          BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Explore'),
           BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
         ],
       ),

@@ -1,3 +1,4 @@
+import '../models/city.dart';
 import '../models/destination.dart';
 import '../models/hotel.dart';
 import '../models/restaurant.dart';
@@ -152,6 +153,209 @@ final List<Destination> destinations = [
     hotels: ['hotel1'],
     restaurants: ['rest2'],
   ),
+
+  // Lahore destinations
+  Destination(
+    id: '12',
+    name: 'Shalimar Gardens',
+    location: 'Lahore, Punjab, Pakistan',
+    description:
+        'A magnificent Mughal garden built in 1641, featuring terraced levels, fountains, and beautiful pavilions. UNESCO World Heritage Site.',
+    imageUrl:
+        'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=800',
+    category: 'Historical',
+    rating: 4.6,
+    hotels: ['hotel8'],
+    restaurants: ['rest9'],
+  ),
+  Destination(
+    id: '13',
+    name: 'Wazir Khan Mosque',
+    location: 'Lahore, Punjab, Pakistan',
+    description:
+        'A 17th-century mosque famous for its extensive faience tile work and intricate Mughal architecture.',
+    imageUrl:
+        'https://images.unsplash.com/photo-1590415879678-5f78cd9b2af5?w=800',
+    category: 'Historical',
+    rating: 4.7,
+    hotels: ['hotel8'],
+    restaurants: ['rest9'],
+  ),
+
+  // Karachi destinations
+  Destination(
+    id: '14',
+    name: 'Mazar-e-Quaid',
+    location: 'Karachi, Sindh, Pakistan',
+    description:
+        'The magnificent mausoleum of Muhammad Ali Jinnah, the founder of Pakistan. An iconic white marble structure.',
+    imageUrl:
+        'https://images.unsplash.com/photo-1582407947304-fd86f028f716?w=800',
+    category: 'Historical',
+    rating: 4.8,
+    hotels: ['hotel5'],
+    restaurants: ['rest5'],
+  ),
+  Destination(
+    id: '15',
+    name: 'Mohatta Palace',
+    location: 'Karachi, Sindh, Pakistan',
+    description:
+        'A stunning pink palace built in 1925, now serving as a museum showcasing art and culture.',
+    imageUrl:
+        'https://images.unsplash.com/photo-1577495508326-19a1b3cf65b7?w=800',
+    category: 'Historical',
+    rating: 4.5,
+    hotels: ['hotel5'],
+    restaurants: ['rest6'],
+  ),
+  Destination(
+    id: '16',
+    name: 'Frere Hall',
+    location: 'Karachi, Sindh, Pakistan',
+    description:
+        'A beautiful colonial-era building surrounded by gardens, now housing a library and art gallery.',
+    imageUrl:
+        'https://images.unsplash.com/photo-1519904981063-b0cf448d479e?w=800',
+    category: 'Historical',
+    rating: 4.4,
+    hotels: ['hotel5'],
+    restaurants: ['rest5'],
+  ),
+
+  // Islamabad destinations
+  Destination(
+    id: '17',
+    name: 'Faisal Mosque',
+    location: 'Islamabad, Pakistan',
+    description:
+        'The largest mosque in Pakistan and one of the largest in the world. A masterpiece of contemporary architecture.',
+    imageUrl:
+        'https://images.unsplash.com/photo-1590077428593-a55bb07c4665?w=800',
+    category: 'Historical',
+    rating: 4.9,
+    hotels: ['hotel9'],
+    restaurants: ['rest10'],
+  ),
+  Destination(
+    id: '18',
+    name: 'Daman-e-Koh',
+    location: 'Islamabad, Pakistan',
+    description:
+        'A scenic viewpoint in the Margalla Hills offering panoramic views of Islamabad city.',
+    imageUrl:
+        'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800',
+    category: 'Mountains',
+    rating: 4.6,
+    hotels: ['hotel9'],
+    restaurants: ['rest10'],
+  ),
+  Destination(
+    id: '19',
+    name: 'Pakistan Monument',
+    location: 'Islamabad, Pakistan',
+    description:
+        'A national monument representing the four provinces and three territories of Pakistan. Beautiful architecture and museum.',
+    imageUrl: 'https://images.unsplash.com/photo-1548013146-72479768bada?w=800',
+    category: 'Historical',
+    rating: 4.7,
+    hotels: ['hotel9'],
+    restaurants: ['rest10'],
+  ),
+  Destination(
+    id: '20',
+    name: 'Rawal Lake',
+    location: 'Islamabad, Pakistan',
+    description:
+        'An artificial reservoir providing a peaceful escape with boating facilities and scenic trails.',
+    imageUrl:
+        'https://images.unsplash.com/photo-1439066615861-d1af74d74000?w=800',
+    category: 'Lakes',
+    rating: 4.5,
+    hotels: ['hotel9'],
+    restaurants: ['rest10'],
+  ),
+
+  // Gwadar destinations
+  Destination(
+    id: '21',
+    name: 'Hammerhead',
+    location: 'Gwadar, Balochistan, Pakistan',
+    description:
+        'A unique rock formation jutting into the sea, resembling a hammerhead. Popular sunset spot.',
+    imageUrl:
+        'https://images.unsplash.com/photo-1505142468610-359e7d316be0?w=800',
+    category: 'Beaches',
+    rating: 4.7,
+    hotels: ['hotel7'],
+    restaurants: ['rest8'],
+  ),
+  Destination(
+    id: '22',
+    name: 'Astola Island',
+    location: 'Gwadar, Balochistan, Pakistan',
+    description:
+        'Pakistan\'s largest offshore island, a pristine paradise for marine life and crystal-clear waters.',
+    imageUrl: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800',
+    category: 'Beaches',
+    rating: 4.8,
+    hotels: ['hotel7'],
+    restaurants: ['rest8'],
+  ),
+  Destination(
+    id: '23',
+    name: 'Princess of Hope',
+    location: 'Gwadar, Balochistan, Pakistan',
+    description:
+        'A natural rock formation resembling a woman\'s profile, standing majestically in the Hingol National Park.',
+    imageUrl:
+        'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800',
+    category: 'Mountains',
+    rating: 4.6,
+    hotels: ['hotel7'],
+    restaurants: ['rest8'],
+  ),
+
+  // Kaghan Valley destinations
+  Destination(
+    id: '24',
+    name: 'Lulusar Lake',
+    location: 'Kaghan Valley, KPK, Pakistan',
+    description:
+        'The first lake in the Kaghan Valley, accessible by road. Known for its crystal-clear waters and surrounding peaks.',
+    imageUrl:
+        'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800',
+    category: 'Lakes',
+    rating: 4.7,
+    hotels: ['hotel10'],
+    restaurants: ['rest11'],
+  ),
+  Destination(
+    id: '25',
+    name: 'Shogran',
+    location: 'Kaghan Valley, KPK, Pakistan',
+    description:
+        'A hill station offering breathtaking views of Makra Peak and lush green meadows.',
+    imageUrl:
+        'https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=800',
+    category: 'Mountains',
+    rating: 4.8,
+    hotels: ['hotel10'],
+    restaurants: ['rest11'],
+  ),
+  Destination(
+    id: '26',
+    name: 'Babusar Pass',
+    location: 'Kaghan Valley, KPK, Pakistan',
+    description:
+        'A high mountain pass connecting Kaghan Valley with Chilas. Spectacular views of surrounding peaks.',
+    imageUrl:
+        'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800',
+    category: 'Mountains',
+    rating: 4.9,
+    hotels: ['hotel10'],
+    restaurants: ['rest11'],
+  ),
 ];
 
 /// Sample hotels data
@@ -276,5 +480,97 @@ final List<Restaurant> restaurants = [
     imageUrl: 'https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800',
     cuisine: 'Pakistani, Continental, Chinese',
     priceRange: 'PKR 1200-2800',
+  ),
+];
+
+/// Sample cities data
+final List<City> cities = [
+  City(
+    id: 'city1',
+    name: 'Lahore',
+    province: 'Punjab',
+    description:
+        'The cultural heart of Pakistan with rich history, magnificent Mughal architecture, and vibrant food scene.',
+    imageUrl:
+        'https://images.unsplash.com/photo-1564507592333-c60657eea523?w=800',
+    destinationIds: [
+      '7',
+      '9',
+      '12',
+      '13',
+    ], // Badshahi Mosque, Lahore Fort, Shalimar Gardens, Wazir Khan Mosque
+  ),
+  City(
+    id: 'city2',
+    name: 'Karachi',
+    province: 'Sindh',
+    description:
+        'Pakistan\'s largest city and economic hub with beautiful beaches and diverse culture.',
+    imageUrl: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800',
+    destinationIds: [
+      '4',
+      '14',
+      '15',
+      '16',
+    ], // Clifton Beach, Mazar-e-Quaid, Mohatta Palace, Frere Hall
+  ),
+  City(
+    id: 'city3',
+    name: 'Islamabad',
+    province: 'Federal Capital',
+    description:
+        'The modern capital city of Pakistan, known for its greenery, clean environment, and Faisal Mosque.',
+    imageUrl: 'https://images.unsplash.com/photo-1548013146-72479768bada?w=800',
+    destinationIds: [
+      '17',
+      '18',
+      '19',
+      '20',
+    ], // Faisal Mosque, Daman-e-Koh, Pakistan Monument, Rawal Lake
+  ),
+  City(
+    id: 'city4',
+    name: 'Gilgit',
+    province: 'Gilgit-Baltistan',
+    description:
+        'Gateway to the northern areas with breathtaking mountain ranges and stunning valleys.',
+    imageUrl:
+        'https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=800',
+    destinationIds: [
+      '1',
+      '2',
+      '3',
+      '11',
+    ], // Hunza, Fairy Meadows, Skardu, Attabad Lake
+  ),
+  City(
+    id: 'city5',
+    name: 'Gwadar',
+    province: 'Balochistan',
+    description:
+        'Emerging port city with pristine beaches and unique coastal landscapes.',
+    imageUrl:
+        'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800',
+    destinationIds: [
+      '6',
+      '21',
+      '22',
+      '23',
+    ], // Gwadar Beach, Hammerhead, Astola Island, Princess of Hope
+  ),
+  City(
+    id: 'city6',
+    name: 'Kaghan Valley',
+    province: 'Khyber Pakhtunkhwa',
+    description:
+        'Beautiful valley known for its alpine lakes and lush green meadows.',
+    imageUrl:
+        'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800',
+    destinationIds: [
+      '10',
+      '24',
+      '25',
+      '26',
+    ], // Saif-ul-Malook, Lulusar Lake, Shogran, Babusar Pass
   ),
 ];

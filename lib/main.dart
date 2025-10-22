@@ -4,13 +4,13 @@ import 'package:google_fonts/google_fonts.dart';
 import 'screens/about_screen.dart';
 import 'screens/destination_list_screen.dart';
 import 'screens/details_screen.dart';
+import 'screens/explore_screen.dart';
 import 'screens/favorites_screen.dart';
 import 'screens/home_screen.dart';
 import 'screens/hotels_screen.dart';
 import 'screens/login_screen.dart';
 import 'screens/profile_screen.dart';
 import 'screens/restaurants_screen.dart';
-import 'screens/reviews_screen.dart';
 // Screens
 import 'screens/splash_screen.dart';
 
@@ -54,11 +54,11 @@ class TravelExplorerApp extends StatelessWidget {
         '/': (context) => const SplashScreen(),
         '/login': (context) => const LoginScreen(),
         '/home': (context) => const HomeScreen(),
+        '/explore': (context) => const ExploreScreen(),
         '/destinations': (context) => const DestinationListScreen(),
         '/details': (context) => const DetailsScreen(),
         '/hotels': (context) => const HotelsScreen(),
         '/restaurants': (context) => const RestaurantsScreen(),
-        '/reviews': (context) => const ReviewsScreen(),
         '/favorites': (context) => const FavoritesScreen(),
         '/about': (context) => const AboutScreen(),
         '/profile': (context) => const ProfileScreen(),

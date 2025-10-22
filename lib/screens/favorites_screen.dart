@@ -37,7 +37,7 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
       backgroundColor: Colors.grey[50],
       appBar: AppBar(
         title: Text(
-          'My Favorites',
+          'My Wishlist',
           style: GoogleFonts.poppins(fontWeight: FontWeight.w600),
         ),
         backgroundColor: const Color(0xFF4A90E2),
@@ -57,7 +57,7 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
                   ),
                   const SizedBox(height: 20),
                   Text(
-                    'No favorites yet',
+                    'No wishlist items yet',
                     style: GoogleFonts.poppins(
                       fontSize: 20,
                       color: Colors.grey,
@@ -65,7 +65,7 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
                   ),
                   const SizedBox(height: 10),
                   Text(
-                    'Start exploring and add your favorite destinations!',
+                    'Start exploring and add destinations to your wishlist!',
                     style: GoogleFonts.poppins(
                       fontSize: 14,
                       color: Colors.grey[500],

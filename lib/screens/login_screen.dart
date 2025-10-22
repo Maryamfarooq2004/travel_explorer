@@ -17,7 +17,9 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
+        height: double.infinity,
         decoration: BoxDecoration(
+          
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
@@ -179,29 +181,6 @@ class _LoginScreenState extends State<LoginScreen> {
 
                   const SizedBox(height: 25),
 
-                  // Continue with Apple
-                  SocialLoginButton(
-                    icon: FontAwesomeIcons.apple,
-                    text: 'Continue with Apple',
-                    backgroundColor: Colors.black,
-                    onPressed: () {
-                      Navigator.pushReplacementNamed(context, '/home');
-                    },
-                  ),
-
-                  const SizedBox(height: 15),
-
-                  // Continue with Facebook
-                  SocialLoginButton(
-                    icon: FontAwesomeIcons.facebook,
-                    text: 'Facebook',
-                    backgroundColor: const Color(0xFF1877F2),
-                    onPressed: () {
-                      Navigator.pushReplacementNamed(context, '/home');
-                    },
-                  ),
-
-                  const SizedBox(height: 15),
 
                   // Continue with Google
                   SocialLoginButton(
