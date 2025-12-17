@@ -7,6 +7,7 @@ class Destination {
   final String imageUrl;
   final String category;
   final double rating;
+  final List<String> tags;
   final List<String> hotels;
   final List<String> restaurants;
 
@@ -18,6 +19,7 @@ class Destination {
     required this.imageUrl,
     required this.category,
     required this.rating,
+    required this.tags,
     this.hotels = const [],
     this.restaurants = const [],
   });
@@ -32,23 +34,36 @@ class Destination {
       'imageUrl': imageUrl,
       'category': category,
       'rating': rating,
+      'tags': tags,
       'hotels': hotels,
       'restaurants': restaurants,
     };
   }
 
-  // Create from JSON
-  factory Destination.fromJson(Map<String, dynamic> json) {
+
+  // Create from JSON/Map
+  factory Destination.fromMap(Map<dynamic, dynamic> map) {
     return Destination(
-      id: json['id'],
-      name: json['name'],
-      location: json['location'],
-      description: json['description'],
-      imageUrl: json['imageUrl'],
-      category: json['category'],
-      rating: json['rating'].toDouble(),
-      hotels: List<String>.from(json['hotels'] ?? []),
-      restaurants: List<String>.from(json['restaurants'] ?? []),
+      id: map['id']?.toString() ?? '',
+      name: map['name']?.toString() ?? '',
+      location: map['location']?.toString() ?? '',
+      description: map['description']?.toString() ?? '',
+      imageUrl: map['imageUrl']?.toString() ?? '',
+      category: map['category']?.toString() ?? '',
+      rating: (map['rating'] is int) 
+          ? (map['rating'] as int).toDouble() 
+          : (map['rating']?.toDouble() ?? 0.0),
+      tags: map['tags'] != null
+          ? List<String>.from((map['tags'] as List).map((e) => e.toString()))
+          : [],
+      hotels: map['hotels'] != null 
+          ? List<String>.from((map['hotels'] as List).map((e) => e.toString())) 
+          : [],
+      restaurants: map['restaurants'] != null 
+          ? List<String>.from((map['restaurants'] as List).map((e) => e.toString())) 
+          : [],
     );
   }
+
+  factory Destination.fromJson(Map<String, dynamic> json) => Destination.fromMap(json);
 }

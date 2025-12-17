@@ -17,4 +17,30 @@ class Restaurant {
     required this.cuisine,
     required this.priceRange,
   });
+
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'name': name,
+      'location': location,
+      'rating': rating,
+      'imageUrl': imageUrl,
+      'cuisine': cuisine,
+      'priceRange': priceRange,
+    };
+  }
+
+  factory Restaurant.fromMap(Map<dynamic, dynamic> map) {
+    return Restaurant(
+      id: map['id']?.toString() ?? '',
+      name: map['name']?.toString() ?? '',
+      location: map['location']?.toString() ?? '',
+      rating: (map['rating'] is int) 
+          ? (map['rating'] as int).toDouble() 
+          : (map['rating']?.toDouble() ?? 0.0),
+      imageUrl: map['imageUrl']?.toString() ?? '',
+      cuisine: map['cuisine']?.toString() ?? '',
+      priceRange: map['priceRange']?.toString() ?? '',
+    );
+  }
 }

@@ -1,23 +1,55 @@
 import 'package:flutter/material.dart';
-
-import '../data/sample_data.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../models/city.dart';
 import '../models/destination.dart';
+import '../services/database_service.dart';
 import '../widgets/destination_card.dart';
+import '../utils/app_theme.dart';
 
 class ExploreScreen extends StatelessWidget {
   const ExploreScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final dbService = DatabaseService();
+
     return Scaffold(
-      appBar: AppBar(title: const Text('Explore by City'), elevation: 0),
-      body: ListView.builder(
-        padding: const EdgeInsets.all(16),
-        itemCount: cities.length,
-        itemBuilder: (context, index) {
-          final city = cities[index];
-          return CityCard(city: city);
+      appBar: AppBar(
+        title: Text('Explore by City', style: GoogleFonts.poppins(fontWeight: FontWeight.w600)),
+        backgroundColor: AppTheme.primaryColor,
+        foregroundColor: Colors.white,
+      ),
+      body: StreamBuilder<List<City>>(
+        stream: dbService.getCities(),
+        builder: (context, citySnapshot) {
+          if (citySnapshot.connectionState == ConnectionState.waiting) {
+            return const Center(child: CircularProgressIndicator());
+          }
+          final cities = citySnapshot.data ?? [];
+          
+          if (cities.isEmpty) {
+             return Center(child: Text("No cities found", style: GoogleFonts.poppins(color: Colors.grey)));
+          }
+
+          // We also need destinations to filter by city
+          return StreamBuilder<List<Destination>>(
+            stream: dbService.getDestinations(),
+            builder: (context, destSnapshot) {
+              final destinations = destSnapshot.data ?? [];
+              
+              return ListView.builder(
+                padding: const EdgeInsets.all(16),
+                itemCount: cities.length,
+                itemBuilder: (context, index) {
+                  final city = cities[index];
+                  // Filter destinations for this city
+                  final cityDestinations = destinations.where((d) => city.destinationIds.contains(d.id)).toList();
+                  
+                  return CityCard(city: city, cityDestinations: cityDestinations);
+                },
+              );
+            },
+          );
         },
       ),
     );
@@ -26,41 +58,35 @@ class ExploreScreen extends StatelessWidget {
 
 class CityCard extends StatelessWidget {
   final City city;
+  final List<Destination> cityDestinations;
 
-  const CityCard({super.key, required this.city});
-
-  List<Destination> _getCityDestinations() {
-    return destinations
-        .where((dest) => city.destinationIds.contains(dest.id))
-        .toList();
-  }
+  const CityCard({super.key, required this.city, required this.cityDestinations});
 
   @override
   Widget build(BuildContext context) {
-    final cityDestinations = _getCityDestinations();
-
     return Card(
-      margin: const EdgeInsets.only(bottom: 20),
-      elevation: 4,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+      margin: const EdgeInsets.only(bottom: 24),
+      elevation: 6,
+      shadowColor: Colors.black26,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           // City Image Header
           ClipRRect(
-            borderRadius: const BorderRadius.vertical(top: Radius.circular(16)),
+            borderRadius: const BorderRadius.vertical(top: Radius.circular(20)),
             child: Stack(
               children: [
                 Image.network(
                   city.imageUrl,
-                  height: 200,
+                  height: 220,
                   width: double.infinity,
                   fit: BoxFit.cover,
                   errorBuilder: (context, error, stackTrace) {
                     return Container(
-                      height: 200,
+                      height: 220,
                       color: Colors.grey[300],
-                      child: const Icon(Icons.image_not_supported, size: 50),
+                      child: const Icon(Icons.image_not_supported, size: 50, color: Colors.grey),
                     );
                   },
                 ),
@@ -73,8 +99,9 @@ class CityCard extends StatelessWidget {
                         end: Alignment.bottomCenter,
                         colors: [
                           Colors.transparent,
-                          Colors.black.withOpacity(0.7),
+                          Colors.black.withOpacity(0.8),
                         ],
+                        stops: const [0.6, 1.0],
                       ),
                     ),
                   ),
@@ -82,25 +109,43 @@ class CityCard extends StatelessWidget {
                 // City Info
                 Positioned(
                   bottom: 16,
-                  left: 16,
-                  right: 16,
+                  left: 20,
+                  right: 20,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        city.name,
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 28,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
+                       Row(
+                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                         children: [
+                           Text(
+                            city.name,
+                            style: GoogleFonts.poppins(
+                              color: Colors.white,
+                              fontSize: 28,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          Container(
+                             padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                             decoration: BoxDecoration(
+                               color: Colors.white.withOpacity(0.2),
+                               borderRadius: BorderRadius.circular(8),
+                             ),
+                             child: Text(
+                                city.province,
+                                style: GoogleFonts.poppins(color: Colors.white, fontSize: 12),
+                             ),
+                          ),
+                         ],
+                       ),
                       const SizedBox(height: 4),
                       Text(
-                        city.province,
-                        style: TextStyle(
+                        city.description,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                        style: GoogleFonts.poppins(
                           color: Colors.white.withOpacity(0.9),
-                          fontSize: 16,
+                          fontSize: 14,
                         ),
                       ),
                     ],
@@ -110,73 +155,62 @@ class CityCard extends StatelessWidget {
             ),
           ),
 
-          // City Description
-          Padding(
-            padding: const EdgeInsets.all(16),
-            child: Text(
-              city.description,
-              style: TextStyle(
-                fontSize: 14,
-                color: Colors.grey[700],
-                height: 1.5,
-              ),
-            ),
-          ),
-
           // Places to Visit
           if (cityDestinations.isNotEmpty) ...[
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
+              padding: const EdgeInsets.fromLTRB(16, 16, 16, 8),
               child: Row(
                 children: [
-                  const Icon(Icons.place, size: 20, color: Colors.blue),
+                  Icon(Icons.place, size: 18, color: AppTheme.primaryColor),
                   const SizedBox(width: 8),
                   Text(
-                    'Places to Visit (${cityDestinations.length})',
-                    style: const TextStyle(
+                    'Places to Visit',
+                    style: GoogleFonts.poppins(
                       fontSize: 16,
-                      fontWeight: FontWeight.bold,
+                      fontWeight: FontWeight.w600,
+                      color: Colors.grey[800],
                     ),
+                  ),
+                  const Spacer(),
+                  Text(
+                    '${cityDestinations.length} places',
+                    style: GoogleFonts.poppins(fontSize: 12, color: Colors.grey),
                   ),
                 ],
               ),
             ),
-            const SizedBox(height: 12),
             SizedBox(
-              height: 240,
+              height: 250,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 padding: const EdgeInsets.symmetric(horizontal: 16),
                 itemCount: cityDestinations.length,
                 itemBuilder: (context, index) {
-                  return SizedBox(
+                  return Container(
                     width: 280,
-                    child: Padding(
-                      padding: const EdgeInsets.only(right: 12),
-                      child: DestinationCard(
-                        destination: cityDestinations[index],
-                        onTap: () {
-                          Navigator.pushNamed(
-                            context,
-                            '/details',
-                            arguments: cityDestinations[index],
-                          );
-                        },
-                      ),
+                    margin: const EdgeInsets.only(right: 16, bottom: 16),
+                    child: DestinationCard(
+                      destination: cityDestinations[index],
+                      onTap: () {
+                        Navigator.pushNamed(
+                          context,
+                          '/details',
+                          arguments: cityDestinations[index],
+                        );
+                      },
                     ),
                   );
                 },
               ),
             ),
-            const SizedBox(height: 16),
           ] else
             Padding(
-              padding: const EdgeInsets.all(16),
+              padding: const EdgeInsets.all(24),
               child: Center(
                 child: Text(
-                  'No destinations available for this city yet',
-                  style: TextStyle(
-                    color: Colors.grey[600],
+                  'No destinations added yet.',
+                  style: GoogleFonts.poppins(
+                    color: Colors.grey[500],
                     fontStyle: FontStyle.italic,
                   ),
                 ),
