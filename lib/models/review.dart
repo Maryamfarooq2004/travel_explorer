@@ -16,7 +16,6 @@ class Review {
     required this.destinationId,
   });
 
-  // Convert to JSON for local storage
   Map<String, dynamic> toJson() {
     return {
       'id': id,
@@ -28,15 +27,18 @@ class Review {
     };
   }
 
-  // Create from JSON
-  factory Review.fromJson(Map<String, dynamic> json) {
+  factory Review.fromMap(Map<dynamic, dynamic> map) {
     return Review(
-      id: json['id'],
-      userName: json['userName'],
-      comment: json['comment'],
-      rating: json['rating'].toDouble(),
-      date: DateTime.parse(json['date']),
-      destinationId: json['destinationId'],
+      id: map['id']?.toString() ?? '',
+      userName: map['userName']?.toString() ?? 'Anonymous',
+      comment: map['comment']?.toString() ?? '',
+      rating: (map['rating'] is int) 
+          ? (map['rating'] as int).toDouble() 
+          : (map['rating']?.toDouble() ?? 0.0),
+      date: map['date'] != null ? DateTime.parse(map['date'].toString()) : DateTime.now(),
+      destinationId: map['destinationId']?.toString() ?? '',
     );
   }
+  
+  factory Review.fromJson(Map<String, dynamic> json) => Review.fromMap(json);
 }

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
+import 'package:firebase_auth/firebase_auth.dart';
 import '../models/destination.dart';
 import '../models/review.dart';
-import '../utils/favorites_manager.dart';
+import '../services/database_service.dart';
+import '../utils/app_theme.dart';
 import '../widgets/rating_star.dart';
 
-/// Reviews Screen for viewing and adding reviews
 class ReviewsScreen extends StatefulWidget {
   const ReviewsScreen({super.key});
 
@@ -15,254 +15,215 @@ class ReviewsScreen extends StatefulWidget {
 }
 
 class _ReviewsScreenState extends State<ReviewsScreen> {
-  final TextEditingController _nameController = TextEditingController();
   final TextEditingController _commentController = TextEditingController();
   double _userRating = 5.0;
-  List<Review> reviews = [];
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+  final DatabaseService _dbService = DatabaseService();
 
-  @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-    _loadReviews();
-  }
-
-  Future<void> _loadReviews() async {
-    final destination =
-        ModalRoute.of(context)!.settings.arguments as Destination;
-    final loadedReviews = await FavoritesManager.getReviewsForDestination(
-      destination.id,
-    );
-    setState(() {
-      reviews = loadedReviews;
-    });
-  }
-
-  Future<void> _addReview() async {
-    if (_nameController.text.isEmpty || _commentController.text.isEmpty) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(
-            'Please fill in all fields',
-            style: GoogleFonts.poppins(),
-          ),
-        ),
-      );
+  Future<void> _addReview(String destinationId) async {
+    final user = _auth.currentUser;
+    if (user == null) {
+        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Please login to review')));
+        return;
+    }
+    
+    if (_commentController.text.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Please write a comment')));
       return;
     }
 
-    final destination =
-        ModalRoute.of(context)!.settings.arguments as Destination;
     final newReview = Review(
-      id: DateTime.now().toString(),
-      userName: _nameController.text,
+      id: DateTime.now().millisecondsSinceEpoch.toString(),
+      userName: user.displayName ?? user.email ?? 'Anonymous',
       comment: _commentController.text,
       rating: _userRating,
       date: DateTime.now(),
-      destinationId: destination.id,
+      destinationId: destinationId,
     );
 
-    await FavoritesManager.addReview(newReview);
+    await _dbService.addReview(newReview);
 
-    _nameController.clear();
     _commentController.clear();
     setState(() {
       _userRating = 5.0;
     });
 
-    await _loadReviews();
-
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(
-          'Review added successfully!',
-          style: GoogleFonts.poppins(),
-        ),
-      ),
-    );
+    if (mounted) {
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Review added successfully!')));
+      FocusScope.of(context).unfocus();
+    }
   }
 
   @override
   Widget build(BuildContext context) {
+    final destination = ModalRoute.of(context)!.settings.arguments as Destination;
+
     return Scaffold(
       backgroundColor: Colors.grey[50],
       appBar: AppBar(
-        title: Text(
-          'Reviews',
-          style: GoogleFonts.poppins(fontWeight: FontWeight.w600),
-        ),
-        backgroundColor: const Color(0xFFE07A5F),
+        title: Text('Reviews', style: GoogleFonts.poppins(fontWeight: FontWeight.w600)),
+        backgroundColor: AppTheme.primaryColor,
         foregroundColor: Colors.white,
       ),
       body: Column(
         children: [
-          // Reviews List
+          // Header with rating summary (static for now, could aggregate real data)
+          Container(
+            padding: const EdgeInsets.all(20),
+            color: Colors.white,
+            child: Row(
+              children: [
+                Text(
+                  destination.rating.toString(),
+                  style: GoogleFonts.poppins(fontSize: 48, fontWeight: FontWeight.bold, color: Colors.amber),
+                ),
+                const SizedBox(width: 16),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text('Average Rating', style: GoogleFonts.poppins(fontSize: 14, color: Colors.grey)),
+                    RatingStar(rating: destination.rating, size: 24),
+                  ],
+                ),
+              ],
+            ),
+          ),
+          
           Expanded(
-            child: reviews.isEmpty
-                ? Center(
-                    child: Text(
-                      'No reviews yet. Be the first to review!',
-                      style: GoogleFonts.poppins(
-                        fontSize: 16,
-                        color: Colors.grey,
-                      ),
+            child: StreamBuilder<List<Review>>(
+              stream: _dbService.getReviews(destination.id),
+              builder: (context, snapshot) {
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return const Center(child: CircularProgressIndicator());
+                }
+                final reviews = snapshot.data ?? [];
+
+                if (reviews.isEmpty) {
+                  return Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(Icons.comment_outlined, size: 60, color: Colors.grey[300]),
+                        const SizedBox(height: 16),
+                        Text('No reviews yet', style: GoogleFonts.poppins(fontSize: 16, color: Colors.grey)),
+                        Text('Be the first to share your experience!', style: GoogleFonts.poppins(fontSize: 12, color: Colors.grey[400])),
+                      ],
                     ),
-                  )
-                : ListView.builder(
-                    padding: const EdgeInsets.all(20),
-                    itemCount: reviews.length,
-                    itemBuilder: (context, index) {
-                      final review = reviews[index];
-                      return Card(
-                        margin: const EdgeInsets.only(bottom: 15),
-                        elevation: 2,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15),
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.all(15.0),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
+                  );
+                }
+
+                return ListView.builder(
+                  padding: const EdgeInsets.all(20),
+                  itemCount: reviews.length,
+                  itemBuilder: (context, index) {
+                    final review = reviews[index];
+                    return Container(
+                      margin: const EdgeInsets.only(bottom: 16),
+                      padding: const EdgeInsets.all(16),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(16),
+                        boxShadow: [
+                          BoxShadow(color: Colors.black.withOpacity(0.05), blurRadius: 10, offset: const Offset(0, 4)),
+                        ],
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
                                 children: [
+                                  CircleAvatar(
+                                    radius: 16,
+                                    backgroundColor: AppTheme.primaryColor.withOpacity(0.1),
+                                    child: Text(review.userName[0].toUpperCase(), style: TextStyle(color: AppTheme.primaryColor, fontWeight: FontWeight.bold)),
+                                  ),
+                                  const SizedBox(width: 10),
                                   Text(
                                     review.userName,
-                                    style: GoogleFonts.poppins(
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.bold,
-                                    ),
+                                    style: GoogleFonts.poppins(fontWeight: FontWeight.bold, fontSize: 14),
                                   ),
-                                  RatingStar(rating: review.rating, size: 16),
                                 ],
                               ),
-                              const SizedBox(height: 8),
-                              Text(
-                                review.comment,
-                                style: GoogleFonts.poppins(
-                                  fontSize: 14,
-                                  color: Colors.grey[700],
-                                  height: 1.5,
-                                ),
-                              ),
-                              const SizedBox(height: 8),
                               Text(
                                 '${review.date.day}/${review.date.month}/${review.date.year}',
-                                style: GoogleFonts.poppins(
-                                  fontSize: 12,
-                                  color: Colors.grey[500],
-                                ),
+                                style: TextStyle(fontSize: 12, color: Colors.grey[400]),
                               ),
                             ],
                           ),
-                        ),
-                      );
-                    },
-                  ),
+                          const SizedBox(height: 8),
+                          RatingStar(rating: review.rating, size: 14),
+                          const SizedBox(height: 12),
+                          Text(
+                            review.comment,
+                            style: GoogleFonts.poppins(fontSize: 14, color: Colors.grey[700], height: 1.5),
+                          ),
+                        ],
+                      ),
+                    );
+                  },
+                );
+              },
+            ),
           ),
 
-          // Add Review Form
+          // Add Review Section
           Container(
             padding: const EdgeInsets.all(20),
             decoration: BoxDecoration(
               color: Colors.white,
               boxShadow: [
-                BoxShadow(
-                  color: Colors.black.withOpacity(0.05),
-                  blurRadius: 10,
-                  offset: const Offset(0, -5),
-                ),
+                BoxShadow(color: Colors.black.withOpacity(0.05), blurRadius: 10, offset: const Offset(0, -5)),
               ],
+              borderRadius: const BorderRadius.vertical(top: Radius.circular(24)),
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  'Add Your Review',
-                  style: GoogleFonts.poppins(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                  ),
+                Text('Write a Review', style: GoogleFonts.poppins(fontWeight: FontWeight.bold, fontSize: 16)),
+                const SizedBox(height: 12),
+                Row(
+                  children: List.generate(5, (index) {
+                    return GestureDetector(
+                      onTap: () => setState(() => _userRating = index + 1.0),
+                      child: Padding(
+                        padding: const EdgeInsets.only(right: 8),
+                        child: Icon(
+                          index < _userRating ? Icons.star : Icons.star_border,
+                          color: Colors.amber,
+                          size: 32,
+                        ),
+                      ),
+                    );
+                  }),
                 ),
-                const SizedBox(height: 15),
-                TextField(
-                  controller: _nameController,
-                  decoration: InputDecoration(
-                    hintText: 'Your name',
-                    hintStyle: GoogleFonts.poppins(),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    contentPadding: const EdgeInsets.symmetric(
-                      horizontal: 15,
-                      vertical: 12,
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 10),
+                const SizedBox(height: 16),
                 TextField(
                   controller: _commentController,
-                  maxLines: 3,
+                  maxLines: 2,
                   decoration: InputDecoration(
-                    hintText: 'Your review...',
-                    hintStyle: GoogleFonts.poppins(),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    contentPadding: const EdgeInsets.all(15),
+                    hintText: 'Share your thoughts...',
+                    hintStyle: GoogleFonts.poppins(fontSize: 14, color: Colors.grey[400]),
+                    border: OutlineInputBorder(borderRadius: BorderRadius.circular(12), borderSide: BorderSide(color: Colors.grey[200]!)),
+                    enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(12), borderSide: BorderSide(color: Colors.grey[200]!)),
+                    filled: true,
+                    fillColor: Colors.grey[50],
                   ),
                 ),
-                const SizedBox(height: 10),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      'Rating:',
-                      style: GoogleFonts.poppins(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                    Row(
-                      children: List.generate(5, (index) {
-                        return IconButton(
-                          onPressed: () {
-                            setState(() {
-                              _userRating = index + 1.0;
-                            });
-                          },
-                          icon: Icon(
-                            index < _userRating
-                                ? Icons.star
-                                : Icons.star_border,
-                            color: Colors.amber,
-                          ),
-                        );
-                      }),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 10),
+                const SizedBox(height: 16),
                 SizedBox(
                   width: double.infinity,
                   child: ElevatedButton(
-                    onPressed: _addReview,
+                    onPressed: () => _addReview(destination.id),
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color(0xFFE07A5F),
-                      padding: const EdgeInsets.symmetric(vertical: 15),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
+                      backgroundColor: AppTheme.primaryColor,
+                      padding: const EdgeInsets.symmetric(vertical: 16),
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                      elevation: 0,
                     ),
-                    child: Text(
-                      'Submit Review',
-                      style: GoogleFonts.poppins(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w600,
-                        color: Colors.white,
-                      ),
-                    ),
+                    child: Text('Submit Review', style: GoogleFonts.poppins(fontWeight: FontWeight.w600, color: Colors.white)),
                   ),
                 ),
               ],
@@ -271,12 +232,5 @@ class _ReviewsScreenState extends State<ReviewsScreen> {
         ],
       ),
     );
-  }
-
-  @override
-  void dispose() {
-    _nameController.dispose();
-    _commentController.dispose();
-    super.dispose();
   }
 }

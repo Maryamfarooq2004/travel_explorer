@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_fonts/google_fonts.dart';
-
-import '../data/sample_data.dart';
-import '../widgets/category_card.dart';
+import '../models/destination.dart';
+import '../services/database_service.dart';
+import '../services/recommendation_service.dart';
+import '../widgets/swipeable_card_stack.dart';
 import '../widgets/destination_card.dart';
+import '../widgets/custom_floating_nav_bar.dart';
+import '../widgets/category_chips.dart';
+import '../widgets/service_quick_grid.dart';
+import '../utils/app_theme.dart';
 
-/// Home Screen with categories and recommended destinations
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -14,243 +19,378 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  String searchQuery = '';
+  final RecommendationService _recommendationService = RecommendationService();
+  final DatabaseService _dbService = DatabaseService();
+  late Stream<List<Destination>> _destinationsStream;
+  bool _isRecommendationReady = false;
+  
+  // State for UI
+  String _selectedCategory = 'All';
+  String _searchQuery = '';
+  final TextEditingController _searchController = TextEditingController();
+  int _currentNavIndex = 0;
+
+  final List<String> _categories = [
+    'All',
+    'Mountains',
+    'Beaches',
+    'Lakes',
+    'Historical',
+    'City',
+    'Nature'
+  ];
+
+  @override
+  void initState() {
+    super.initState();
+    _destinationsStream = _dbService.getDestinations();
+    _initRecommendation();
+    _searchController.addListener(_onSearchChanged);
+  }
+
+
+  @override
+  void dispose() {
+    _searchController.dispose();
+    super.dispose();
+  }
+
+  void _onSearchChanged() {
+    setState(() {
+      _searchQuery = _searchController.text.toLowerCase();
+    });
+  }
+
+  Future<void> _initRecommendation() async {
+    await _recommendationService.init();
+    if (mounted) {
+      setState(() {
+        _isRecommendationReady = true;
+      });
+    }
+  }
+
+  void _onCategorySelected(String category) {
+    setState(() {
+      _selectedCategory = category;
+    });
+  }
+
+  void _onDestinationTap(Destination destination) {
+    Navigator.pushNamed(
+      context, 
+      '/details',
+      arguments: destination,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
-    // Filter destinations based on search
-    final filteredDestinations = destinations.where((dest) {
-      return dest.name.toLowerCase().contains(searchQuery.toLowerCase()) ||
-          dest.location.toLowerCase().contains(searchQuery.toLowerCase());
-    }).toList();
+    final user = FirebaseAuth.instance.currentUser;
+    final userName = user?.displayName?.split(' ').first ?? 'Traveler';
 
     return Scaffold(
-      backgroundColor: Colors.grey[50],
-      body: SafeArea(
-        child: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                // Header
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Hi Maryam 👋',
-                          style: GoogleFonts.poppins(
-                            fontSize: 24,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        Text(
-                          'Ready to explore Pakistan?',
-                          style: GoogleFonts.poppins(
-                            fontSize: 14,
-                            color: Colors.grey[600],
-                          ),
-                        ),
-                      ],
-                    ),
-                    IconButton(
-                      onPressed: () {},
-                      icon: const Icon(Icons.notifications_outlined, size: 28),
-                    ),
-                  ],
-                ),
+      backgroundColor: AppTheme.scaffoldBackgroundColor,
+      // Stack needed for floating navbar
+      body: Stack(
+        children: [
+          // 0. Jazz Gradient Background (Top Section)
+          Container(
+            height: 320, // Covers Header + Search
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: [
+                  AppTheme.primaryColor,
+                  AppTheme.primaryColor.withOpacity(0.0), // Fade to transparent
+                ],
+              ),
+            ),
+          ),
 
-                const SizedBox(height: 25),
+          // 1. Main Content
+          StreamBuilder<List<Destination>>(
+            stream: _destinationsStream,
+            builder: (context, snapshotDestinations) {
+          if (snapshotDestinations.connectionState == ConnectionState.waiting) {
+            return const Center(child: CircularProgressIndicator());
+          }
 
-                // Search Bar
-                Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(15),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.grey.withOpacity(0.1),
-                        blurRadius: 10,
-                        offset: const Offset(0, 2),
+          if (snapshotDestinations.hasError) {
+            return Center(child: Text('Error: ${snapshotDestinations.error}'));
+          }
+
+          final allDestinations = snapshotDestinations.data ?? [];
+          
+          // Filter logic
+          final filteredDestinations = allDestinations.where((d) {
+             // 1. Category Filter
+             final matchesCategory = _selectedCategory == 'All' || 
+                                   d.category == _selectedCategory || 
+                                   d.tags.contains(_selectedCategory.toLowerCase());
+             
+             // 2. Search Filter
+             final matchesSearch = _searchQuery.isEmpty ||
+                 d.name.toLowerCase().contains(_searchQuery) ||
+                 d.location.toLowerCase().contains(_searchQuery) ||
+                 d.tags.any((tag) => tag.toLowerCase().contains(_searchQuery));
+
+             return matchesCategory && matchesSearch;
+           }).toList();
+
+          // Carousel Data
+          final carouselDestinations = (allDestinations.toList()..shuffle()).take(5).toList();
+
+          return StreamBuilder<List<String>>(
+            stream: user != null ? _dbService.getFavoriteIds(user.uid) : Stream.value([]),
+            builder: (context, snapshotFavorites) {
+              final favoriteIds = snapshotFavorites.data ?? [];
+              
+              // Calculate Recommendations
+              List<Destination> recommendations = [];
+              if (_isRecommendationReady && favoriteIds.isNotEmpty && allDestinations.isNotEmpty) {
+                final favoriteDestinations = allDestinations.where((d) => favoriteIds.contains(d.id)).toList();
+                recommendations = _recommendationService.recommend(allDestinations, favoriteDestinations).take(5).toList();
+              }
+
+              // Determine Main Highlight (Recommendations > Top Picks)
+              final highlightList = recommendations.isNotEmpty ? recommendations : carouselDestinations;
+              final highlightTitle = recommendations.isNotEmpty ? "Recommended" : "Featured Destinations";
+
+              return CustomScrollView(
+                slivers: [
+                  // 1. Modern SliverAppBar
+                  SliverAppBar(
+                    expandedHeight: 70.0, // Much more compact
+                    pinned: true,
+                    backgroundColor: Colors.transparent, // Transparent for gradient
+                    surfaceTintColor: Colors.transparent,
+                    elevation: 0,
+                    flexibleSpace: FlexibleSpaceBar(
+                      titlePadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+                      centerTitle: false,
+                      title: RichText(
+                        text: TextSpan(
+                          children: [
+                            TextSpan(
+                              text: 'Travel',
+                              style: GoogleFonts.poppins(
+                                color: Colors.white,
+                                fontWeight: FontWeight.w500,
+                                fontSize: 20,
+                                letterSpacing: 0.5,
+                              ),
+                            ),
+                            TextSpan(
+                              text: 'Mate',
+                              style: GoogleFonts.playfairDisplay(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                fontStyle: FontStyle.italic,
+                                fontSize: 22, // Slightly larger for flair
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    actions: [
+                      Padding(
+                        padding: const EdgeInsets.only(right: 24),
+                        child: CircleAvatar(
+                          radius: 20,
+                          backgroundColor: Colors.grey[200],
+                          backgroundImage: user?.photoURL != null 
+                              ? NetworkImage(user!.photoURL!) 
+                              : null,
+                          child: user?.photoURL == null 
+                              ? const Icon(Icons.person, color: Colors.grey) 
+                              : null,
+                        ),
                       ),
                     ],
                   ),
-                  child: TextField(
-                    onChanged: (value) {
-                      setState(() {
-                        searchQuery = value;
-                      });
-                    },
-                    decoration: InputDecoration(
-                      hintText: 'Search destinations...',
-                      border: InputBorder.none,
-                      icon: const Icon(Icons.search, color: Colors.grey),
-                      hintStyle: GoogleFonts.poppins(color: Colors.grey[400]),
-                    ),
-                  ),
-                ),
 
-                const SizedBox(height: 30),
-
-                // Categories Section
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      'Categories',
-                      style: GoogleFonts.poppins(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    TextButton(
-                      onPressed: () {},
-                      child: Row(
+                  // 2. Greeting & Search (Non-sticky Header content)
+                  SliverToBoxAdapter(
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20), // Tighter slide padding
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Icon(Icons.filter_list, size: 20),
-                          const SizedBox(width: 5),
-                          Text('Filter', style: GoogleFonts.poppins()),
+                          Text(
+                            "Welcome back, $userName \u{1F44B}",
+                            style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                              fontSize: 14, 
+                              color: Colors.white.withOpacity(0.9), // Light text
+                            ),
+                          ),
+                          const SizedBox(height: 16), // Reduced gap
+                          Container(
+                            height: 30, // More compact
+                            decoration: BoxDecoration(
+                              // Super round pill
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.black.withOpacity(0.04),
+                                  blurRadius: 16,
+                                  spreadRadius: 4,
+                                  offset: const Offset(0, 4),
+                                ),
+                              ],
+                            ),
+                            child: TextField(
+
+                              controller: _searchController,
+                              style: const TextStyle(fontSize: 14),
+                              onChanged: (value) {},
+                              decoration: InputDecoration(
+                                hintText: 'Where to next?',
+                                filled: true,
+
+                                fillColor: Colors.white38,
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(290),),
+
+                                hintStyle: GoogleFonts.poppins(color: Colors.grey[400], fontSize: 13),
+                                prefixIcon: Icon(Icons.search, color: AppTheme.primaryColor, size: 20),
+                                suffixIcon: _searchQuery.isNotEmpty
+                                    ? IconButton(
+                                  icon: const Icon(Icons.close, color: Colors.grey, size: 18),
+                                  onPressed: () => _searchController.clear(),
+                                )
+                                    : null,
+                                contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                                isDense: true,
+                              ),
+                            ),
+                          ),
+                          const SizedBox(height: 20), // Reduced section gap
                         ],
                       ),
                     ),
-                  ],
-                ),
+                  ),
 
-                const SizedBox(height: 15),
+                  // 2.5 Service Grid (Dashboard) - REMOVED per user request
+                  // const SliverToBoxAdapter(
+                  //   child: ServiceQuickGrid(),
+                  // ),
 
-                // Categories Grid
-                GridView.count(
-                  crossAxisCount: 2,
-                  shrinkWrap: true,
-                  physics: const NeverScrollableScrollPhysics(),
-                  crossAxisSpacing: 15,
-                  mainAxisSpacing: 15,
-                  childAspectRatio: 1.5,
-                  children: [
-                    CategoryCard(
-                      title: 'Mountains',
-                      icon: Icons.landscape,
-                      color: const Color(0xFF4A90E2),
-                      onTap: () {
-                        Navigator.pushNamed(
-                          context,
-                          '/destinations',
-                          arguments: 'Mountains',
-                        );
-                      },
-                    ),
-                    CategoryCard(
-                      title: 'Beaches',
-                      icon: Icons.beach_access,
-                      color: const Color(0xFF50C9C3),
-                      onTap: () {
-                        Navigator.pushNamed(
-                          context,
-                          '/destinations',
-                          arguments: 'Beaches',
-                        );
-                      },
-                    ),
-                    CategoryCard(
-                      title: 'Historical',
-                      icon: Icons.account_balance,
-                      color: const Color(0xFFE07A5F),
-                      onTap: () {
-                        Navigator.pushNamed(
-                          context,
-                          '/destinations',
-                          arguments: 'Historical',
-                        );
-                      },
-                    ),
-                    CategoryCard(
-                      title: 'Lakes',
-                      icon: Icons.water,
-                      color: const Color(0xFF81B29A),
-                      onTap: () {
-                        Navigator.pushNamed(
-                          context,
-                          '/destinations',
-                          arguments: 'Lakes',
-                        );
-                      },
-                    ),
-                  ],
-                ),
-
-                const SizedBox(height: 30),
-
-                // Recommended Section
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      'Recommended',
-                      style: GoogleFonts.poppins(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
+                  // 3. Highlight Carousel
+                  if (highlightList.isNotEmpty) ...[
+                    SliverPadding(
+                      padding: const EdgeInsets.only(left: 20, bottom: 12),
+                      sliver: SliverToBoxAdapter(
+                        child: Text(
+                          highlightTitle,
+                          style: GoogleFonts.playfairDisplay( // Designer suggested font
+                            fontSize: 22,
+                            fontWeight: FontWeight.bold,
+                            color: AppTheme.textPrimary,
+                          ), 
+                        ),
                       ),
                     ),
+                    SliverToBoxAdapter(
+                      child: SwipeableCardStack(
+                        destinations: highlightList,
+                        onCardTap: _onDestinationTap,
+                      ),
+                    ),
+                    const SliverToBoxAdapter(child: SizedBox(height: 20)),
                   ],
-                ),
 
-                const SizedBox(height: 15),
+                  // 4. Categories
+                  SliverToBoxAdapter(
+                    child: CategoryChips(
+                      categories: _categories,
+                      selectedCategory: _selectedCategory,
+                      onCategorySelected: _onCategorySelected,
+                    ),
+                  ),
+                  const SliverToBoxAdapter(child: SizedBox(height: 16)),
 
-                // Recommended Destinations
-                ListView.builder(
-                  shrinkWrap: true,
-                  physics: const NeverScrollableScrollPhysics(),
-                  itemCount: filteredDestinations.take(5).length,
-                  itemBuilder: (context, index) {
-                    final destination = filteredDestinations[index];
-                    return Padding(
-                      padding: const EdgeInsets.only(bottom: 15),
-                      child: DestinationCard(
-                        destination: destination,
-                        onTap: () {
-                          Navigator.pushNamed(
-                            context,
-                            '/details',
-                            arguments: destination,
+                  // 5. Grid Header
+                  SliverPadding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    sliver: SliverToBoxAdapter(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            'Explore Places',
+                            style: GoogleFonts.playfairDisplay(
+                              fontSize: 22,
+                              fontWeight: FontWeight.bold,
+                              color: AppTheme.textPrimary,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+
+                  // 6. Main Grid
+                  SliverPadding(
+                    padding: const EdgeInsets.all(20),
+                    sliver: SliverGrid(
+                      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 2,
+                        mainAxisSpacing: 16, // Tighter grid
+                        crossAxisSpacing: 16,
+                        childAspectRatio: 1.0, // Square tiles for density
+                      ),
+                      delegate: SliverChildBuilderDelegate(
+                        (context, index) {
+                          final destination = filteredDestinations[index];
+                          final isFavorite = favoriteIds.contains(destination.id);
+                          
+                          return DestinationCard(
+                            destination: destination,
+                            compact: true, // Use overlay style
+                            isFavorite: isFavorite,
+                            onFavoriteToggle: user != null 
+                              ? () => _dbService.toggleFavorite(user.uid, destination.id, isFavorite)
+                              : null,
+                            onTap: () => _onDestinationTap(destination),
                           );
                         },
+                        childCount: filteredDestinations.length,
                       ),
-                    );
-                  },
-                ),
-              ],
-            ),
-          ),
-        ),
+                    ),
+                  ),
+                  
+                  // Bottom spacer for Floating Nav Bar (Crucial)
+                  const SliverToBoxAdapter(child: SizedBox(height: 120)),
+                ],
+              );
+            }
+          );
+        }
       ),
 
-      // Bottom Navigation Bar
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        selectedItemColor: const Color(0xFF4A90E2),
-        unselectedItemColor: Colors.grey,
-        currentIndex: 0,
-        onTap: (index) {
-          if (index == 1) {
-            Navigator.pushNamed(context, '/explore');
-          } else if (index == 2) {
-            Navigator.pushNamed(context, '/favorites');
-          } else if (index == 3) {
-            Navigator.pushNamed(context, '/profile');
-          }
-        },
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-          BottomNavigationBarItem(icon: Icon(Icons.explore), label: 'Cities'),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.favorite_border),
-            label: 'Wishlist',
+          // 2. Custom Floating Bottom Bar
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: CustomFloatingNavBar(
+              currentIndex: _currentNavIndex,
+              onTap: (index) {
+                if (index == 4) {
+                   Navigator.pushNamed(context, '/maps');
+                   return; // Don't update state index for this push
+                }
+                setState(() => _currentNavIndex = index);
+                if (index == 3) {
+                   Navigator.pushNamed(context, '/profile');
+                } else if (index == 1) {
+                   Navigator.pushNamed(context, '/explore');
+                } else if (index == 2) {
+                   Navigator.pushNamed(context, '/favorites');
+                }
+              },
+            ),
           ),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
         ],
       ),
     );

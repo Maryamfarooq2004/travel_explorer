@@ -1,0 +1,2215 @@
+[
+    {
+        "id": "1",
+        "name": "Hunza Valley",
+        "location": "Gilgit-Baltistan, Pakistan",
+        "description": "Known for its breathtaking mountains and peaceful views. A paradise for hikers and nature lovers.",
+        "imageUrl": "https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=800",
+        "category": "Mountains",
+        "rating": 4.9,
+        "tags": [
+            "nature",
+            "mountains",
+            "hiking",
+            "view",
+            "historical",
+            "culture",
+            "peaceful"
+        ],
+        "hotels": [
+            "hotel1",
+            "hotel2"
+        ],
+        "restaurants": [
+            "rest1",
+            "rest2"
+        ]
+    },
+    {
+        "id": "2",
+        "name": "Fairy Meadows",
+        "location": "Gilgit-Baltistan, Pakistan",
+        "description": "A grassland near one of the base camps of Nanga Parbat. It offers stunning views of the ninth-highest mountain in the world.",
+        "imageUrl": "https://images.unsplash.com/photo-1609137144813-7d9921338f24?w=800",
+        "category": "Mountains",
+        "rating": 4.8,
+        "tags": [
+            "nature",
+            "mountains",
+            "camping",
+            "adventure",
+            "trekking",
+            "cold"
+        ],
+        "hotels": [
+            "hotel3"
+        ],
+        "restaurants": [
+            "rest3"
+        ]
+    },
+    {
+        "id": "3",
+        "name": "Skardu",
+        "location": "Gilgit-Baltistan, Pakistan",
+        "description": "Gateway to some of the highest peaks on Earth, including K2. Home to beautiful lakes and ancient forts.",
+        "imageUrl": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800",
+        "category": "Mountains",
+        "rating": 4.7,
+        "tags": [
+            "nature",
+            "mountains",
+            "lakes",
+            "desert",
+            "historical"
+        ],
+        "hotels": [
+            "hotel4"
+        ],
+        "restaurants": [
+            "rest4"
+        ]
+    },
+    {
+        "id": "4",
+        "name": "Clifton Beach",
+        "location": "Karachi, Pakistan",
+        "description": "A beautiful beach with golden sand and blue waves. One of the most popular beaches in Karachi.",
+        "imageUrl": "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800",
+        "category": "Beaches",
+        "rating": 4.2,
+        "tags": [
+            "beach",
+            "sea",
+            "city",
+            "crowded",
+            "food",
+            "camel_ride"
+        ],
+        "hotels": [
+            "hotel5"
+        ],
+        "restaurants": [
+            "rest5",
+            "rest6"
+        ]
+    },
+    {
+        "id": "5",
+        "name": "Kund Malir",
+        "location": "Balochistan, Pakistan",
+        "description": "A pristine beach along the Makran Coastal Highway with stunning sunset views and serene atmosphere.",
+        "imageUrl": "https://images.unsplash.com/photo-1505142468610-359e7d316be0?w=800",
+        "category": "Beaches",
+        "rating": 4.6,
+        "tags": [
+            "beach",
+            "nature",
+            "road_trip",
+            "peaceful",
+            "blue_water"
+        ],
+        "hotels": [
+            "hotel6"
+        ],
+        "restaurants": [
+            "rest7"
+        ]
+    },
+    {
+        "id": "100",
+        "name": "Ziarat",
+        "location": "Balochistan",
+        "description": "A scenic valley known for its juniper forests and the Quaid-e-Azam Residency.",
+        "imageUrl": "https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=800",
+        "category": "Mountains",
+        "rating": 4.7,
+        "tags": [
+            "valley",
+            "forest",
+            "history",
+            "residency",
+            "peaceful"
+        ],
+        "hotels": [
+            "hotel6"
+        ],
+        "restaurants": [
+            "rest7"
+        ]
+    },
+    {
+        "id": "6",
+        "name": "Gwadar Beach",
+        "location": "Gwadar, Balochistan, Pakistan",
+        "description": "Emerging coastal destination with pristine beaches and unique rock formations.",
+        "imageUrl": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800",
+        "category": "Beaches",
+        "rating": 4.4,
+        "tags": [
+            "beach",
+            "port",
+            "fishing",
+            "sunset",
+            "developing"
+        ],
+        "hotels": [
+            "hotel7"
+        ],
+        "restaurants": [
+            "rest8"
+        ]
+    },
+    {
+        "id": "7",
+        "name": "Badshahi Mosque",
+        "location": "Lahore, Punjab, Pakistan",
+        "description": "One of the largest mosques in the world, built in 1671 during the Mughal Empire.",
+        "imageUrl": "https://images.unsplash.com/photo-1564507592333-c60657eea523?w=800",
+        "category": "Historical",
+        "rating": 4.9,
+        "tags": [
+            "history",
+            "architecture",
+            "religious",
+            "mughal",
+            "city"
+        ],
+        "hotels": [
+            "hotel8"
+        ],
+        "restaurants": [
+            "rest9"
+        ]
+    },
+    {
+        "id": "8",
+        "name": "Mohenjo Daro",
+        "location": "Sindh, Pakistan",
+        "description": "Ancient Indus Valley civilization site, dating back to 2500 BCE. A UNESCO World Heritage Site.",
+        "imageUrl": "https://images.unsplash.com/photo-1548013146-72479768bada?w=800",
+        "category": "Historical",
+        "rating": 4.7,
+        "tags": [
+            "history",
+            "ruins",
+            "ancient",
+            "unesco",
+            "archaeology"
+        ],
+        "hotels": [
+            "hotel9"
+        ],
+        "restaurants": [
+            "rest10"
+        ]
+    },
+    {
+        "id": "9",
+        "name": "Lahore Fort",
+        "location": "Lahore, Punjab, Pakistan",
+        "description": "A citadel in the city of Lahore with a history dating back over 1000 years.",
+        "imageUrl": "https://images.unsplash.com/photo-1582407947304-fd86f028f716?w=800",
+        "category": "Historical",
+        "rating": 4.8,
+        "tags": [
+            "history",
+            "fort",
+            "mughal",
+            "architecture",
+            "unesco"
+        ],
+        "hotels": [
+            "hotel8"
+        ],
+        "restaurants": [
+            "rest9"
+        ]
+    },
+    {
+        "id": "10",
+        "name": "Saif-ul-Malook",
+        "location": "Kaghan Valley, KPK, Pakistan",
+        "description": "A mountainous lake located at the northern end of the Kaghan Valley, surrounded by peaks.",
+        "imageUrl": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800",
+        "category": "Lakes",
+        "rating": 4.9,
+        "tags": [
+            "lake",
+            "nature",
+            "mountains",
+            "mythology",
+            "boating"
+        ],
+        "hotels": [
+            "hotel10"
+        ],
+        "restaurants": [
+            "rest11"
+        ]
+    },
+    {
+        "id": "11",
+        "name": "Attabad Lake",
+        "location": "Hunza Valley, Gilgit-Baltistan, Pakistan",
+        "description": "A stunning turquoise lake formed in 2010 after a massive landslide. Perfect for boating.",
+        "imageUrl": "https://images.unsplash.com/photo-1439066615861-d1af74d74000?w=800",
+        "category": "Lakes",
+        "rating": 4.8,
+        "tags": [
+            "lake",
+            "nature",
+            "turquoise",
+            "boating",
+            "adventure"
+        ],
+        "hotels": [
+            "hotel1"
+        ],
+        "restaurants": [
+            "rest2"
+        ]
+    },
+    {
+        "id": "12",
+        "name": "Shalimar Gardens",
+        "location": "Lahore, Punjab, Pakistan",
+        "description": "A magnificent Mughal garden built in 1641, featuring terraced levels, fountains, and beautiful pavilions. UNESCO World Heritage Site.",
+        "imageUrl": "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=800",
+        "category": "Historical",
+        "rating": 4.6,
+        "tags": [
+            "history",
+            "garden",
+            "mughal",
+            "nature",
+            "city"
+        ],
+        "hotels": [
+            "hotel8"
+        ],
+        "restaurants": [
+            "rest9"
+        ]
+    },
+    {
+        "id": "13",
+        "name": "Wazir Khan Mosque",
+        "location": "Lahore, Punjab, Pakistan",
+        "description": "A 17th-century mosque famous for its extensive faience tile work and intricate Mughal architecture.",
+        "imageUrl": "https://images.unsplash.com/photo-1590415879678-5f78cd9b2af5?w=800",
+        "category": "Historical",
+        "rating": 4.7,
+        "tags": [
+            "history",
+            "religious",
+            "architecture",
+            "art",
+            "old_city"
+        ],
+        "hotels": [
+            "hotel8"
+        ],
+        "restaurants": [
+            "rest9"
+        ]
+    },
+    {
+        "id": "14",
+        "name": "Mazar-e-Quaid",
+        "location": "Karachi, Sindh, Pakistan",
+        "description": "The magnificent mausoleum of Muhammad Ali Jinnah, the founder of Pakistan. An iconic white marble structure.",
+        "imageUrl": "https://images.unsplash.com/photo-1582407947304-fd86f028f716?w=800",
+        "category": "Historical",
+        "rating": 4.8,
+        "tags": [
+            "history",
+            "monument",
+            "city",
+            "patriotic",
+            "architecture"
+        ],
+        "hotels": [
+            "hotel5"
+        ],
+        "restaurants": [
+            "rest5"
+        ]
+    },
+    {
+        "id": "15",
+        "name": "Mohatta Palace",
+        "location": "Karachi, Sindh, Pakistan",
+        "description": "A stunning pink palace built in 1925, now serving as a museum showcasing art and culture.",
+        "imageUrl": "https://images.unsplash.com/photo-1577495508326-19a1b3cf65b7?w=800",
+        "category": "Historical",
+        "rating": 4.5,
+        "tags": [
+            "history",
+            "museum",
+            "art",
+            "palace",
+            "city"
+        ],
+        "hotels": [
+            "hotel5"
+        ],
+        "restaurants": [
+            "rest6"
+        ]
+    },
+    {
+        "id": "16",
+        "name": "Frere Hall",
+        "location": "Karachi, Sindh, Pakistan",
+        "description": "A beautiful colonial-era building surrounded by gardens, now housing a library and art gallery.",
+        "imageUrl": "https://images.unsplash.com/photo-1519904981063-b0cf448d479e?w=800",
+        "category": "Historical",
+        "rating": 4.4,
+        "tags": [
+            "history",
+            "library",
+            "art",
+            "colonial",
+            "park"
+        ],
+        "hotels": [
+            "hotel5"
+        ],
+        "restaurants": [
+            "rest5"
+        ]
+    },
+    {
+        "id": "17",
+        "name": "Faisal Mosque",
+        "location": "Islamabad, Pakistan",
+        "description": "The largest mosque in Pakistan and one of the largest in the world. A masterpiece of contemporary architecture.",
+        "imageUrl": "https://images.unsplash.com/photo-1590077428593-a55bb07c4665?w=800",
+        "category": "Historical",
+        "rating": 4.9,
+        "tags": [
+            "religious",
+            "architecture",
+            "modern",
+            "iconic",
+            "mountains"
+        ],
+        "hotels": [
+            "hotel9"
+        ],
+        "restaurants": [
+            "rest10"
+        ]
+    },
+    {
+        "id": "18",
+        "name": "Daman-e-Koh",
+        "location": "Islamabad, Pakistan",
+        "description": "A scenic viewpoint in the Margalla Hills offering panoramic views of Islamabad city.",
+        "imageUrl": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800",
+        "category": "Mountains",
+        "rating": 4.6,
+        "tags": [
+            "view",
+            "nature",
+            "city_view",
+            "monkeys",
+            "picnic"
+        ],
+        "hotels": [
+            "hotel9"
+        ],
+        "restaurants": [
+            "rest10"
+        ]
+    },
+    {
+        "id": "19",
+        "name": "Pakistan Monument",
+        "location": "Islamabad, Pakistan",
+        "description": "A national monument representing the four provinces and three territories of Pakistan. Beautiful architecture and museum.",
+        "imageUrl": "https://images.unsplash.com/photo-1548013146-72479768bada?w=800",
+        "category": "Historical",
+        "rating": 4.7,
+        "tags": [
+            "monument",
+            "museum",
+            "history",
+            "architecture",
+            "patriotic"
+        ],
+        "hotels": [
+            "hotel9"
+        ],
+        "restaurants": [
+            "rest10"
+        ]
+    },
+    {
+        "id": "20",
+        "name": "Rawal Lake",
+        "location": "Islamabad, Pakistan",
+        "description": "An artificial reservoir providing a peaceful escape with boating facilities and scenic trails.",
+        "imageUrl": "https://images.unsplash.com/photo-1439066615861-d1af74d74000?w=800",
+        "category": "Lakes",
+        "rating": 4.5,
+        "tags": [
+            "lake",
+            "nature",
+            "boating",
+            "picnic",
+            "sunset"
+        ],
+        "hotels": [
+            "hotel9"
+        ],
+        "restaurants": [
+            "rest10"
+        ]
+    },
+    {
+        "id": "21",
+        "name": "Hammerhead",
+        "location": "Gwadar, Balochistan, Pakistan",
+        "description": "A unique rock formation jutting into the sea, resembling a hammerhead. Popular sunset spot.",
+        "imageUrl": "https://images.unsplash.com/photo-1505142468610-359e7d316be0?w=800",
+        "category": "Beaches",
+        "rating": 4.7,
+        "tags": [
+            "beach",
+            "rock_formation",
+            "nature",
+            "sunset",
+            "view"
+        ],
+        "hotels": [
+            "hotel7"
+        ],
+        "restaurants": [
+            "rest8"
+        ]
+    },
+    {
+        "id": "22",
+        "name": "Astola Island",
+        "location": "Gwadar, Balochistan, Pakistan",
+        "description": "Pakistan's largest offshore island, a pristine paradise for marine life and crystal-clear waters.",
+        "imageUrl": "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800",
+        "category": "Beaches",
+        "rating": 4.8,
+        "tags": [
+            "island",
+            "beach",
+            "nature",
+            "adventure",
+            "camping",
+            "wildlife"
+        ],
+        "hotels": [
+            "hotel7"
+        ],
+        "restaurants": [
+            "rest8"
+        ]
+    },
+    {
+        "id": "23",
+        "name": "Princess of Hope",
+        "location": "Gwadar, Balochistan, Pakistan",
+        "description": "A natural rock formation resembling a woman's profile, standing majestically in the Hingol National Park.",
+        "imageUrl": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800",
+        "category": "Mountains",
+        "rating": 4.6,
+        "tags": [
+            "rock_formation",
+            "nature",
+            "desert",
+            "history",
+            "mystery"
+        ],
+        "hotels": [
+            "hotel7"
+        ],
+        "restaurants": [
+            "rest8"
+        ]
+    },
+    {
+        "id": "24",
+        "name": "Lulusar Lake",
+        "location": "Kaghan Valley, KPK, Pakistan",
+        "description": "The first lake in the Kaghan Valley, accessible by road. Known for its crystal-clear waters and surrounding peaks.",
+        "imageUrl": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800",
+        "category": "Lakes",
+        "rating": 4.7,
+        "tags": [
+            "lake",
+            "mountains",
+            "nature",
+            "road_trip",
+            "cool"
+        ],
+        "hotels": [
+            "hotel10"
+        ],
+        "restaurants": [
+            "rest11"
+        ]
+    },
+    {
+        "id": "25",
+        "name": "Shogran",
+        "location": "Kaghan Valley, KPK, Pakistan",
+        "description": "A hill station offering breathtaking views of Makra Peak and lush green meadows.",
+        "imageUrl": "https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=800",
+        "category": "Mountains",
+        "rating": 4.8,
+        "tags": [
+            "mountains",
+            "meadows",
+            "nature",
+            "family",
+            "relaxation"
+        ],
+        "hotels": [
+            "hotel10"
+        ],
+        "restaurants": [
+            "rest11"
+        ]
+    },
+    {
+        "id": "26",
+        "name": "Babusar Pass",
+        "location": "Kaghan Valley, KPK, Pakistan",
+        "description": "A high mountain pass connecting Kaghan Valley with Chilas. Spectacular views of surrounding peaks.",
+        "imageUrl": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800",
+        "category": "Mountains",
+        "rating": 4.9,
+        "tags": [
+            "mountains",
+            "pass",
+            "adventure",
+            "view",
+            "cold",
+            "road_trip"
+        ],
+        "hotels": [
+            "hotel10"
+        ],
+        "restaurants": [
+            "rest11"
+        ]
+    },
+    {
+        "id": "27",
+        "name": "Naran Valley",
+        "location": "Kaghan Valley",
+        "description": "A popular tourist destination known for its pleasant weather and proximity to Saif-ul-Malook.",
+        "imageUrl": "https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=800",
+        "category": "Mountains",
+        "rating": 4.5,
+        "tags": [
+            "valley",
+            "tourist",
+            "river",
+            "nature",
+            "food"
+        ],
+        "hotels": [
+            "hotel10"
+        ],
+        "restaurants": [
+            "rest11"
+        ]
+    },
+    {
+        "id": "28",
+        "name": "Khanpur Dam",
+        "location": "Haripur, KPK",
+        "description": "A dam on the Haro River, famous for water sports like jet skiing and cliff diving.",
+        "imageUrl": "https://images.unsplash.com/photo-1439066615861-d1af74d74000?w=800",
+        "category": "Lakes",
+        "rating": 4.6,
+        "tags": [
+            "water_sports",
+            "adventure",
+            "dam",
+            "lake",
+            "picnic"
+        ],
+        "hotels": [
+            "hotel9"
+        ],
+        "restaurants": [
+            "rest10"
+        ]
+    },
+    {
+        "id": "29",
+        "name": "Swat Valley",
+        "location": "KPK, Pakistan",
+        "description": "Known as the Switzerland of the East. Famous for its snow-capped mountains and fruit orchards.",
+        "imageUrl": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800",
+        "category": "Mountains",
+        "rating": 4.8,
+        "tags": [
+            "valley",
+            "nature",
+            "history",
+            "buddhist",
+            "rivers"
+        ],
+        "hotels": [
+            "hotel1",
+            "hotel2"
+        ],
+        "restaurants": [
+            "rest1",
+            "rest2"
+        ]
+    },
+    {
+        "id": "30",
+        "name": "Malam Jabba",
+        "location": "Swat, KPK",
+        "description": "A hill station and ski resort in the Hindu Kush mountain range.",
+        "imageUrl": "https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=800",
+        "category": "Mountains",
+        "rating": 4.7,
+        "tags": [
+            "skiing",
+            "snow",
+            "adventure",
+            "resort",
+            "chairlift"
+        ],
+        "hotels": [
+            "hotel1"
+        ],
+        "restaurants": [
+            "rest1"
+        ]
+    },
+    {
+        "id": "31",
+        "name": "Passu Cones",
+        "location": "Hunza Valley",
+        "description": "Distinctive cone-shaped mountains that are a photographer's dream.",
+        "imageUrl": "https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=800",
+        "category": "Mountains",
+        "rating": 4.9,
+        "tags": [
+            "mountains",
+            "photography",
+            "nature",
+            "iconic",
+            "view"
+        ],
+        "hotels": [
+            "hotel1",
+            "hotel2"
+        ],
+        "restaurants": [
+            "rest1",
+            "rest2"
+        ]
+    },
+    {
+        "id": "32",
+        "name": "Khunjerab Pass",
+        "location": "Pakistan-China Border",
+        "description": "The highest paved international border crossing in the world.",
+        "imageUrl": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800",
+        "category": "Mountains",
+        "rating": 4.9,
+        "tags": [
+            "border",
+            "snow",
+            "high_altitude",
+            "adventure",
+            "road_trip"
+        ],
+        "hotels": [
+            "hotel2"
+        ],
+        "restaurants": [
+            "rest2"
+        ]
+    },
+    {
+        "id": "33",
+        "name": "Rohtas Fort",
+        "location": "Jhelum, Punjab",
+        "description": "A 16th-century fortress built by Sher Shah Suri. A UNESCO World Heritage Site.",
+        "imageUrl": "https://images.unsplash.com/photo-1582407947304-fd86f028f716?w=800",
+        "category": "Historical",
+        "rating": 4.6,
+        "tags": [
+            "fort",
+            "history",
+            "military",
+            "architecture",
+            "unesco"
+        ],
+        "hotels": [
+            "hotel8"
+        ],
+        "restaurants": [
+            "rest9"
+        ]
+    },
+    {
+        "id": "34",
+        "name": "Murree",
+        "location": "Punjab",
+        "description": "A popular hill station known for its colonial era architecture and pine forests.",
+        "imageUrl": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800",
+        "category": "Mountains",
+        "rating": 4.4,
+        "tags": [
+            "hill_station",
+            "shopping",
+            "colonial",
+            "forest",
+            "snow"
+        ],
+        "hotels": [
+            "hotel9"
+        ],
+        "restaurants": [
+            "rest10"
+        ]
+    },
+    {
+        "id": "35",
+        "name": "Hingol National Park",
+        "location": "Balochistan",
+        "description": "The largest national park in Pakistan, home to unique rock formations and wildlife.",
+        "imageUrl": "https://images.unsplash.com/photo-1505142468610-359e7d316be0?w=800",
+        "category": "Mountains",
+        "rating": 4.6,
+        "tags": [
+            "park",
+            "wildlife",
+            "canyon",
+            "nature",
+            "desert"
+        ],
+        "hotels": [
+            "hotel6"
+        ],
+        "restaurants": [
+            "rest7"
+        ]
+    },
+    {
+        "id": "36",
+        "name": "French Beach",
+        "location": "Karachi, Sindh",
+        "description": "A rocky beach known for its privacy and clear waters, popular for snorkeling.",
+        "imageUrl": "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800",
+        "category": "Beaches",
+        "rating": 4.7,
+        "tags": [
+            "beach",
+            "private",
+            "snorkeling",
+            "party",
+            "exclusive"
+        ],
+        "hotels": [
+            "hotel5"
+        ],
+        "restaurants": [
+            "rest6"
+        ]
+    },
+    {
+        "id": "37",
+        "name": "Ranikot Fort",
+        "location": "Sindh",
+        "description": "Also known as the Great Wall of Sindh, it is believed to be the world's largest fort.",
+        "imageUrl": "https://images.unsplash.com/photo-1582407947304-fd86f028f716?w=800",
+        "category": "Historical",
+        "rating": 4.5,
+        "tags": [
+            "fort",
+            "history",
+            "wall",
+            "mystery",
+            "desert"
+        ],
+        "hotels": [
+            "hotel5"
+        ],
+        "restaurants": [
+            "rest5"
+        ]
+    },
+    {
+        "id": "38",
+        "name": "Deosai Plains",
+        "location": "Gilgit-Baltistan",
+        "description": "The second highest alpine plateau in the world, known as the land of giants.",
+        "imageUrl": "https://images.unsplash.com/photo-1609137144813-7d9921338f24?w=800",
+        "category": "Mountains",
+        "rating": 4.9,
+        "tags": [
+            "plateau",
+            "nature",
+            "wildflowers",
+            "bears",
+            "high_altitude"
+        ],
+        "hotels": [
+            "hotel4"
+        ],
+        "restaurants": [
+            "rest4"
+        ]
+    },
+    {
+        "id": "39",
+        "name": "Kartarpur Sahib",
+        "location": "Narowal, Punjab",
+        "description": "One of the holiest sites in Sikhism, housing the final resting place of Guru Nanak.",
+        "imageUrl": "https://images.unsplash.com/photo-1590415879678-5f78cd9b2af5?w=800",
+        "category": "Historical",
+        "rating": 4.8,
+        "tags": [
+            "religious",
+            "sikh",
+            "peace",
+            "complex",
+            "pilgrimage"
+        ],
+        "hotels": [
+            "hotel8"
+        ],
+        "restaurants": [
+            "rest9"
+        ]
+    },
+    {
+        "id": "40",
+        "name": "Baltit Fort",
+        "location": "Hunza Valley, Gilgit-Baltistan",
+        "description": "An ancient fort dating back 700 years, offering spectacular views of the valley.",
+        "imageUrl": "https://images.unsplash.com/photo-1582407947304-fd86f028f716?w=800",
+        "category": "Historical",
+        "rating": 4.8,
+        "tags": [
+            "fort",
+            "history",
+            "culture",
+            "architecture",
+            "museum"
+        ],
+        "hotels": [
+            "hotel1"
+        ],
+        "restaurants": [
+            "rest1"
+        ]
+    },
+    {
+        "id": "41",
+        "name": "Altit Fort",
+        "location": "Hunza Valley, Gilgit-Baltistan",
+        "description": "One of the oldest forts in the Gilgit-Baltistan region, over 900 years old.",
+        "imageUrl": "https://images.unsplash.com/photo-1582407947304-fd86f028f716?w=800",
+        "category": "Historical",
+        "rating": 4.7,
+        "tags": [
+            "fort",
+            "ancient",
+            "history",
+            "heritage",
+            "views"
+        ],
+        "hotels": [
+            "hotel1"
+        ],
+        "restaurants": [
+            "rest1"
+        ]
+    },
+    {
+        "id": "42",
+        "name": "Shigar Fort",
+        "location": "Skardu, Gilgit-Baltistan",
+        "description": "A 400-year-old fort now converted into a museum and heritage hotel.",
+        "imageUrl": "https://images.unsplash.com/photo-1582407947304-fd86f028f716?w=800",
+        "category": "Historical",
+        "rating": 4.7,
+        "tags": [
+            "fort",
+            "heritage",
+            "museum",
+            "history",
+            "stay"
+        ],
+        "hotels": [
+            "hotel4"
+        ],
+        "restaurants": [
+            "rest4"
+        ]
+    },
+    {
+        "id": "43",
+        "name": "Shangrila Resort",
+        "location": "Skardu, Gilgit-Baltistan",
+        "description": "Also known as Heaven on Earth, featuring a heart-shaped lake and beautiful gardens.",
+        "imageUrl": "https://images.unsplash.com/photo-1439066615861-d1af74d74000?w=800",
+        "category": "Lakes",
+        "rating": 4.6,
+        "tags": [
+            "lake",
+            "resort",
+            "nature",
+            "romantic",
+            "relaxation"
+        ],
+        "hotels": [
+            "hotel4"
+        ],
+        "restaurants": [
+            "rest4"
+        ]
+    },
+    {
+        "id": "44",
+        "name": "Satpara Lake",
+        "location": "Skardu, Gilgit-Baltistan",
+        "description": "A natural lake offering serene views and boating opportunities near Skardu.",
+        "imageUrl": "https://images.unsplash.com/photo-1439066615861-d1af74d74000?w=800",
+        "category": "Lakes",
+        "rating": 4.5,
+        "tags": [
+            "lake",
+            "boating",
+            "nature",
+            "peaceful",
+            "scenic"
+        ],
+        "hotels": [
+            "hotel4"
+        ],
+        "restaurants": [
+            "rest4"
+        ]
+    },
+    {
+        "id": "45",
+        "name": "Upper Kachura Lake",
+        "location": "Skardu, Gilgit-Baltistan",
+        "description": "A pristine alpine lake surrounded by mountains and lush greenery.",
+        "imageUrl": "https://images.unsplash.com/photo-1439066615861-d1af74d74000?w=800",
+        "category": "Lakes",
+        "rating": 4.7,
+        "tags": [
+            "lake",
+            "mountains",
+            "nature",
+            "camping",
+            "photography"
+        ],
+        "hotels": [
+            "hotel4"
+        ],
+        "restaurants": [
+            "rest4"
+        ]
+    },
+    {
+        "id": "46",
+        "name": "Rama Lake",
+        "location": "Astore Valley, Gilgit-Baltistan",
+        "description": "A high-altitude lake surrounded by snow-capped peaks and wildflowers.",
+        "imageUrl": "https://images.unsplash.com/photo-1439066615861-d1af74d74000?w=800",
+        "category": "Lakes",
+        "rating": 4.8,
+        "tags": [
+            "lake",
+            "mountains",
+            "camping",
+            "trekking",
+            "flowers"
+        ],
+        "hotels": [
+            "hotel3"
+        ],
+        "restaurants": [
+            "rest3"
+        ]
+    },
+    {
+        "id": "47",
+        "name": "Astore Valley",
+        "location": "Gilgit-Baltistan",
+        "description": "A lush green valley known for its stunning landscapes and gateway to Rama Lake.",
+        "imageUrl": "https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=800",
+        "category": "Mountains",
+        "rating": 4.7,
+        "tags": [
+            "valley",
+            "nature",
+            "trekking",
+            "peaceful",
+            "green"
+        ],
+        "hotels": [
+            "hotel3"
+        ],
+        "restaurants": [
+            "rest3"
+        ]
+    },
+    {
+        "id": "48",
+        "name": "Minimarg",
+        "location": "Astore Valley, Gilgit-Baltistan",
+        "description": "A beautiful meadow offering stunning views of Nanga Parbat and surrounding peaks.",
+        "imageUrl": "https://images.unsplash.com/photo-1609137144813-7d9921338f24?w=800",
+        "category": "Mountains",
+        "rating": 4.6,
+        "tags": [
+            "meadow",
+            "nature",
+            "camping",
+            "mountains",
+            "peaceful"
+        ],
+        "hotels": [
+            "hotel3"
+        ],
+        "restaurants": [
+            "rest3"
+        ]
+    },
+    {
+        "id": "49",
+        "name": "Ratti Gali Lake",
+        "location": "Neelum Valley, AJK",
+        "description": "An alpine glacial lake at 12,130 feet, known for its stunning turquoise waters.",
+        "imageUrl": "https://images.unsplash.com/photo-1439066615861-d1af74d74000?w=800",
+        "category": "Lakes",
+        "rating": 4.9,
+        "tags": [
+            "lake",
+            "trekking",
+            "alpine",
+            "adventure",
+            "turquoise"
+        ],
+        "hotels": [
+            "hotel11"
+        ],
+        "restaurants": [
+            "rest12"
+        ]
+    },
+    {
+        "id": "50",
+        "name": "Neelum Valley",
+        "location": "Azad Kashmir",
+        "description": "A scenic valley along the Neelum River with lush forests and waterfalls.",
+        "imageUrl": "https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=800",
+        "category": "Mountains",
+        "rating": 4.8,
+        "tags": [
+            "valley",
+            "river",
+            "nature",
+            "waterfalls",
+            "green"
+        ],
+        "hotels": [
+            "hotel11"
+        ],
+        "restaurants": [
+            "rest12"
+        ]
+    },
+    {
+        "id": "51",
+        "name": "Taobat",
+        "location": "Neelum Valley, AJK",
+        "description": "The last accessible point in Neelum Valley, surrounded by high mountains and meadows.",
+        "imageUrl": "https://images.unsplash.com/photo-1609137144813-7d9921338f24?w=800",
+        "category": "Mountains",
+        "rating": 4.7,
+        "tags": [
+            "mountains",
+            "remote",
+            "trekking",
+            "nature",
+            "adventure"
+        ],
+        "hotels": [
+            "hotel11"
+        ],
+        "restaurants": [
+            "rest12"
+        ]
+    },
+    {
+        "id": "52",
+        "name": "Sharda",
+        "location": "Neelum Valley, AJK",
+        "description": "Known for ancient Sharda University ruins and stunning mountain views.",
+        "imageUrl": "https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=800",
+        "category": "Historical",
+        "rating": 4.6,
+        "tags": [
+            "history",
+            "ruins",
+            "mountains",
+            "education",
+            "ancient"
+        ],
+        "hotels": [
+            "hotel11"
+        ],
+        "restaurants": [
+            "rest12"
+        ]
+    },
+    {
+        "id": "53",
+        "name": "Keran",
+        "location": "Neelum Valley, AJK",
+        "description": "A border village offering breathtaking views of the Neelum River and mountains.",
+        "imageUrl": "https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=800",
+        "category": "Mountains",
+        "rating": 4.5,
+        "tags": [
+            "border",
+            "river",
+            "nature",
+            "peaceful",
+            "scenic"
+        ],
+        "hotels": [
+            "hotel11"
+        ],
+        "restaurants": [
+            "rest12"
+        ]
+    },
+    {
+        "id": "54",
+        "name": "Muzaffarabad",
+        "location": "Azad Kashmir",
+        "description": "The capital city of Azad Kashmir, located at the confluence of Neelum and Jhelum rivers.",
+        "imageUrl": "https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=800",
+        "category": "Mountains",
+        "rating": 4.4,
+        "tags": [
+            "city",
+            "rivers",
+            "history",
+            "culture",
+            "gateway"
+        ],
+        "hotels": [
+            "hotel11"
+        ],
+        "restaurants": [
+            "rest12"
+        ]
+    },
+    {
+        "id": "55",
+        "name": "Pir Chinasi",
+        "location": "Muzaffarabad, AJK",
+        "description": "A mountain peak shrine offering panoramic views of the valley and surrounding mountains.",
+        "imageUrl": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800",
+        "category": "Mountains",
+        "rating": 4.7,
+        "tags": [
+            "shrine",
+            "view",
+            "mountains",
+            "religious",
+            "panoramic"
+        ],
+        "hotels": [
+            "hotel11"
+        ],
+        "restaurants": [
+            "rest12"
+        ]
+    },
+    {
+        "id": "56",
+        "name": "Banjosa Lake",
+        "location": "Rawalakot, AJK",
+        "description": "An artificial lake surrounded by pine forests and mountains.",
+        "imageUrl": "https://images.unsplash.com/photo-1439066615861-d1af74d74000?w=800",
+        "category": "Lakes",
+        "rating": 4.6,
+        "tags": [
+            "lake",
+            "forest",
+            "boating",
+            "picnic",
+            "family"
+        ],
+        "hotels": [
+            "hotel11"
+        ],
+        "restaurants": [
+            "rest12"
+        ]
+    },
+    {
+        "id": "57",
+        "name": "Toli Pir",
+        "location": "Rawalakot, AJK",
+        "description": "A hilltop known for its scenic beauty and panoramic views, especially stunning in winter.",
+        "imageUrl": "https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=800",
+        "category": "Mountains",
+        "rating": 4.7,
+        "tags": [
+            "hilltop",
+            "view",
+            "snow",
+            "scenic",
+            "winter"
+        ],
+        "hotels": [
+            "hotel11"
+        ],
+        "restaurants": [
+            "rest12"
+        ]
+    },
+    {
+        "id": "58",
+        "name": "Arang Kel",
+        "location": "Neelum Valley, AJK",
+        "description": "A picturesque village accessible by cable car, offering stunning valley views.",
+        "imageUrl": "https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=800",
+        "category": "Mountains",
+        "rating": 4.8,
+        "tags": [
+            "village",
+            "cable_car",
+            "valley",
+            "photography",
+            "nature"
+        ],
+        "hotels": [
+            "hotel11"
+        ],
+        "restaurants": [
+            "rest12"
+        ]
+    },
+    {
+        "id": "59",
+        "name": "Kutton Jagran",
+        "location": "Neelum Valley, AJK",
+        "description": "A scenic valley junction offering stunning views and a base for exploring nearby areas.",
+        "imageUrl": "https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=800",
+        "category": "Mountains",
+        "rating": 4.5,
+        "tags": [
+            "valley",
+            "nature",
+            "base_camp",
+            "trekking",
+            "scenic"
+        ],
+        "hotels": [
+            "hotel11"
+        ],
+        "restaurants": [
+            "rest12"
+        ]
+    },
+    {
+        "id": "60",
+        "name": "Chitta Katha Lake",
+        "location": "Shounter Valley, AJK",
+        "description": "A pristine alpine lake accessible through a challenging trek, worth every step.",
+        "imageUrl": "https://images.unsplash.com/photo-1439066615861-d1af74d74000?w=800",
+        "category": "Lakes",
+        "rating": 4.9,
+        "tags": [
+            "lake",
+            "trekking",
+            "adventure",
+            "alpine",
+            "pristine"
+        ],
+        "hotels": [
+            "hotel11"
+        ],
+        "restaurants": [
+            "rest12"
+        ]
+    },
+    {
+        "id": "61",
+        "name": "Nathiagali",
+        "location": "Abbottabad, KPK",
+        "description": "A mountain resort town known for its pine forests and hiking trails.",
+        "imageUrl": "https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=800",
+        "category": "Mountains",
+        "rating": 4.6,
+        "tags": [
+            "resort",
+            "forest",
+            "hiking",
+            "colonial",
+            "peaceful"
+        ],
+        "hotels": [
+            "hotel9"
+        ],
+        "restaurants": [
+            "rest10"
+        ]
+    },
+    {
+        "id": "62",
+        "name": "Ayubia National Park",
+        "location": "Abbottabad, KPK",
+        "description": "A protected area with diverse wildlife and the famous Pipeline Track hiking trail.",
+        "imageUrl": "https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=800",
+        "category": "Mountains",
+        "rating": 4.7,
+        "tags": [
+            "park",
+            "wildlife",
+            "hiking",
+            "nature",
+            "forest"
+        ],
+        "hotels": [
+            "hotel9"
+        ],
+        "restaurants": [
+            "rest10"
+        ]
+    },
+    {
+        "id": "63",
+        "name": "Thandiani",
+        "location": "Abbottabad, KPK",
+        "description": "A serene hill station offering beautiful views and a peaceful atmosphere.",
+        "imageUrl": "https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=800",
+        "category": "Mountains",
+        "rating": 4.5,
+        "tags": [
+            "hill_station",
+            "peaceful",
+            "nature",
+            "view",
+            "retreat"
+        ],
+        "hotels": [
+            "hotel9"
+        ],
+        "restaurants": [
+            "rest10"
+        ]
+    },
+    {
+        "id": "64",
+        "name": "Kalash Valley",
+        "location": "Chitral, KPK",
+        "description": "Home to the unique Kalash people with their distinct culture and festivals.",
+        "imageUrl": "https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=800",
+        "category": "Mountains",
+        "rating": 4.9,
+        "tags": [
+            "culture",
+            "indigenous",
+            "festival",
+            "unique",
+            "heritage"
+        ],
+        "hotels": [
+            "hotel12"
+        ],
+        "restaurants": [
+            "rest13"
+        ]
+    },
+    {
+        "id": "65",
+        "name": "Chitral",
+        "location": "KPK, Pakistan",
+        "description": "A historic town surrounded by the Hindu Kush mountains.",
+        "imageUrl": "https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=800",
+        "category": "Mountains",
+        "rating": 4.6,
+        "tags": [
+            "town",
+            "mountains",
+            "culture",
+            "history",
+            "gateway"
+        ],
+        "hotels": [
+            "hotel12"
+        ],
+        "restaurants": [
+            "rest13"
+        ]
+    },
+    {
+        "id": "66",
+        "name": "Shandur Pass",
+        "location": "Gilgit-Baltistan/Chitral",
+        "description": "The highest polo ground in the world, hosting the famous Shandur Polo Festival.",
+        "imageUrl": "https://images.unsplash.com/photo-1609137144813-7d9921338f24?w=800",
+        "category": "Mountains",
+        "rating": 4.8,
+        "tags": [
+            "polo",
+            "festival",
+            "high_altitude",
+            "sports",
+            "unique"
+        ],
+        "hotels": [
+            "hotel12"
+        ],
+        "restaurants": [
+            "rest13"
+        ]
+    },
+    {
+        "id": "67",
+        "name": "Broghil Valley",
+        "location": "Chitral, KPK",
+        "description": "A remote valley with stunning landscapes and rich wildlife.",
+        "imageUrl": "https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=800",
+        "category": "Mountains",
+        "rating": 4.7,
+        "tags": [
+            "valley",
+            "remote",
+            "wildlife",
+            "nature",
+            "adventure"
+        ],
+        "hotels": [
+            "hotel12"
+        ],
+        "restaurants": [
+            "rest13"
+        ]
+    },
+    {
+        "id": "68",
+        "name": "Garam Chashma",
+        "location": "Chitral, KPK",
+        "description": "Natural hot springs in a valley surrounded by mountains.",
+        "imageUrl": "https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=800",
+        "category": "Mountains",
+        "rating": 4.6,
+        "tags": [
+            "hot_springs",
+            "nature",
+            "relaxation",
+            "valley",
+            "therapeutic"
+        ],
+        "hotels": [
+            "hotel12"
+        ],
+        "restaurants": [
+            "rest13"
+        ]
+    },
+    {
+        "id": "69",
+        "name": "Kalam Valley",
+        "location": "Swat, KPK",
+        "description": "A picturesque valley known for its lush green hills and pristine streams.",
+        "imageUrl": "https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=800",
+        "category": "Mountains",
+        "rating": 4.8,
+        "tags": [
+            "valley",
+            "nature",
+            "streams",
+            "green",
+            "scenic"
+        ],
+        "hotels": [
+            "hotel1"
+        ],
+        "restaurants": [
+            "rest1"
+        ]
+    },
+    {
+        "id": "70",
+        "name": "Mahodand Lake",
+        "location": "Kalam, Swat",
+        "description": "A pristine alpine lake accessible through a scenic drive from Kalam.",
+        "imageUrl": "https://images.unsplash.com/photo-1439066615861-d1af74d74000?w=800",
+        "category": "Lakes",
+        "rating": 4.8,
+        "tags": [
+            "lake",
+            "alpine",
+            "nature",
+            "trout",
+            "camping"
+        ],
+        "hotels": [
+            "hotel1"
+        ],
+        "restaurants": [
+            "rest1"
+        ]
+    },
+    {
+        "id": "71",
+        "name": "Ushu Forest",
+        "location": "Kalam, Swat",
+        "description": "A dense forest with camping sites and beautiful natural scenery.",
+        "imageUrl": "https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=800",
+        "category": "Mountains",
+        "rating": 4.6,
+        "tags": [
+            "forest",
+            "camping",
+            "nature",
+            "trekking",
+            "peaceful"
+        ],
+        "hotels": [
+            "hotel1"
+        ],
+        "restaurants": [
+            "rest1"
+        ]
+    },
+    {
+        "id": "72",
+        "name": "Mingora",
+        "location": "Swat, KPK",
+        "description": "The main city of Swat Valley, gateway to Buddhist archaeological sites.",
+        "imageUrl": "https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=800",
+        "category": "Historical",
+        "rating": 4.3,
+        "tags": [
+            "city",
+            "buddhist",
+            "archaeology",
+            "shopping",
+            "gateway"
+        ],
+        "hotels": [
+            "hotel1"
+        ],
+        "restaurants": [
+            "rest1"
+        ]
+    },
+    {
+        "id": "73",
+        "name": "Takht-i-Bahi",
+        "location": "Mardan, KPK",
+        "description": "An ancient Buddhist monastery and UNESCO World Heritage Site.",
+        "imageUrl": "https://images.unsplash.com/photo-1548013146-72479768bada?w=800",
+        "category": "Historical",
+        "rating": 4.7,
+        "tags": [
+            "buddhist",
+            "monastery",
+            "unesco",
+            "ancient",
+            "ruins"
+        ],
+        "hotels": [
+            "hotel9"
+        ],
+        "restaurants": [
+            "rest10"
+        ]
+    },
+    {
+        "id": "74",
+        "name": "Peshawar Museum",
+        "location": "Peshawar, KPK",
+        "description": "A renowned museum housing one of the finest collections of Buddhist art.",
+        "imageUrl": "https://images.unsplash.com/photo-1548013146-72479768bada?w=800",
+        "category": "Historical",
+        "rating": 4.6,
+        "tags": [
+            "museum",
+            "buddhist",
+            "art",
+            "history",
+            "culture"
+        ],
+        "hotels": [
+            "hotel9"
+        ],
+        "restaurants": [
+            "rest10"
+        ]
+    },
+    {
+        "id": "75",
+        "name": "Qissa Khwani Bazaar",
+        "location": "Peshawar, KPK",
+        "description": "The historic storytellers' bazaar, a vibrant market with rich cultural heritage.",
+        "imageUrl": "https://images.unsplash.com/photo-1519904981063-b0cf448d479e?w=800",
+        "category": "Historical",
+        "rating": 4.5,
+        "tags": [
+            "bazaar",
+            "market",
+            "culture",
+            "food",
+            "heritage"
+        ],
+        "hotels": [
+            "hotel9"
+        ],
+        "restaurants": [
+            "rest10"
+        ]
+    },
+    {
+        "id": "76",
+        "name": "Bala Hisar Fort",
+        "location": "Peshawar, KPK",
+        "description": "An ancient fort with a history spanning over 2000 years.",
+        "imageUrl": "https://images.unsplash.com/photo-1582407947304-fd86f028f716?w=800",
+        "category": "Historical",
+        "rating": 4.4,
+        "tags": [
+            "fort",
+            "ancient",
+            "history",
+            "military",
+            "architecture"
+        ],
+        "hotels": [
+            "hotel9"
+        ],
+        "restaurants": [
+            "rest10"
+        ]
+    },
+    {
+        "id": "77",
+        "name": "Mansehra Rock Edicts",
+        "location": "Mansehra, KPK",
+        "description": "Ancient rock inscriptions from the Mauryan Emperor Ashoka dating to 3rd century BCE.",
+        "imageUrl": "https://images.unsplash.com/photo-1548013146-72479768bada?w=800",
+        "category": "Historical",
+        "rating": 4.5,
+        "tags": [
+            "ancient",
+            "inscriptions",
+            "buddhist",
+            "history",
+            "archaeology"
+        ],
+        "hotels": [
+            "hotel10"
+        ],
+        "restaurants": [
+            "rest11"
+        ]
+    },
+    {
+        "id": "78",
+        "name": "Taxila",
+        "location": "Rawalpindi, Punjab",
+        "description": "Ancient city and UNESCO World Heritage Site with Gandhara civilization ruins.",
+        "imageUrl": "https://images.unsplash.com/photo-1548013146-72479768bada?w=800",
+        "category": "Historical",
+        "rating": 4.8,
+        "tags": [
+            "ancient",
+            "ruins",
+            "unesco",
+            "buddhist",
+            "gandhara"
+        ],
+        "hotels": [
+            "hotel9"
+        ],
+        "restaurants": [
+            "rest10"
+        ]
+    },
+    {
+        "id": "79",
+        "name": "Shah Faisal Mosque",
+        "location": "Islamabad",
+        "description": "Modern architectural marvel and one of the largest mosques in South Asia.",
+        "imageUrl": "https://images.unsplash.com/photo-1590077428593-a55bb07c4665?w=800",
+        "category": "Historical",
+        "rating": 4.9,
+        "tags": [
+            "mosque",
+            "modern",
+            "architecture",
+            "religious",
+            "iconic"
+        ],
+        "hotels": [
+            "hotel9"
+        ],
+        "restaurants": [
+            "rest10"
+        ]
+    },
+    {
+        "id": "80",
+        "name": "Margalla Hills",
+        "location": "Islamabad",
+        "description": "A hill range offering numerous hiking trails with stunning views of the city.",
+        "imageUrl": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800",
+        "category": "Mountains",
+        "rating": 4.7,
+        "tags": [
+            "hiking",
+            "trails",
+            "nature",
+            "view",
+            "wildlife"
+        ],
+        "hotels": [
+            "hotel9"
+        ],
+        "restaurants": [
+            "rest10"
+        ]
+    },
+    {
+        "id": "81",
+        "name": "Khewra Salt Mine",
+        "location": "Jhelum, Punjab",
+        "description": "The world's second largest salt mine, featuring illuminated tunnels and salt sculptures.",
+        "imageUrl": "https://images.unsplash.com/photo-1548013146-72479768bada?w=800",
+        "category": "Historical",
+        "rating": 4.7,
+        "tags": [
+            "mine",
+            "salt",
+            "unique",
+            "underground",
+            "tourism"
+        ],
+        "hotels": [
+            "hotel8"
+        ],
+        "restaurants": [
+            "rest9"
+        ]
+    },
+    {
+        "id": "82",
+        "name": "Kallar Kahar Lake",
+        "location": "Chakwal, Punjab",
+        "description": "A natural lake surrounded by hills, popular for boating and picnics.",
+        "imageUrl": "https://images.unsplash.com/photo-1439066615861-d1af74d74000?w=800",
+        "category": "Lakes",
+        "rating": 4.4,
+        "tags": [
+            "lake",
+            "boating",
+            "picnic",
+            "nature",
+            "family"
+        ],
+        "hotels": [
+            "hotel8"
+        ],
+        "restaurants": [
+            "rest9"
+        ]
+    },
+    {
+        "id": "83",
+        "name": "Katas Raj Temples",
+        "location": "Chakwal, Punjab",
+        "description": "An ancient Hindu temple complex with a sacred pond dating back to 6th-7th century.",
+        "imageUrl": "https://images.unsplash.com/photo-1548013146-72479768bada?w=800",
+        "category": "Historical",
+        "rating": 4.6,
+        "tags": [
+            "temple",
+            "hindu",
+            "ancient",
+            "pond",
+            "pilgrimage"
+        ],
+        "hotels": [
+            "hotel8"
+        ],
+        "restaurants": [
+            "rest9"
+        ]
+    },
+    {
+        "id": "84",
+        "name": "Hiran Minar",
+        "location": "Sheikhupura, Punjab",
+        "description": "A Mughal-era monument built in memory of Emperor Jahangir's pet deer.",
+        "imageUrl": "https://images.unsplash.com/photo-1582407947304-fd86f028f716?w=800",
+        "category": "Historical",
+        "rating": 4.5,
+        "tags": [
+            "mughal",
+            "monument",
+            "history",
+            "architecture",
+            "unique"
+        ],
+        "hotels": [
+            "hotel8"
+        ],
+        "restaurants": [
+            "rest9"
+        ]
+    },
+    {
+        "id": "85",
+        "name": "Derawar Fort",
+        "location": "Cholistan Desert, Punjab",
+        "description": "A massive square fortress with 40 bastions in the Cholistan Desert.",
+        "imageUrl": "https://images.unsplash.com/photo-1582407947304-fd86f028f716?w=800",
+        "category": "Historical",
+        "rating": 4.7,
+        "tags": [
+            "fort",
+            "desert",
+            "history",
+            "architecture",
+            "remote"
+        ],
+        "hotels": [
+            "hotel8"
+        ],
+        "restaurants": [
+            "rest9"
+        ]
+    },
+    {
+        "id": "86",
+        "name": "Cholistan Desert",
+        "location": "Punjab",
+        "description": "A vast desert known for the annual Cholistan Jeep Rally and unique culture.",
+        "imageUrl": "https://images.unsplash.com/photo-1505142468610-359e7d316be0?w=800",
+        "category": "Mountains",
+        "rating": 4.5,
+        "tags": [
+            "desert",
+            "rally",
+            "adventure",
+            "culture",
+            "unique"
+        ],
+        "hotels": [
+            "hotel8"
+        ],
+        "restaurants": [
+            "rest9"
+        ]
+    },
+    {
+        "id": "87",
+        "name": "Uch Sharif",
+        "location": "Bahawalpur, Punjab",
+        "description": "Historic city featuring magnificent medieval tombs and shrines.",
+        "imageUrl": "https://images.unsplash.com/photo-1582407947304-fd86f028f716?w=800",
+        "category": "Historical",
+        "rating": 4.6,
+        "tags": [
+            "tombs",
+            "shrines",
+            "medieval",
+            "architecture",
+            "religious"
+        ],
+        "hotels": [
+            "hotel8"
+        ],
+        "restaurants": [
+            "rest9"
+        ]
+    },
+    {
+        "id": "88",
+        "name": "Noor Mahal",
+        "location": "Bahawalpur, Punjab",
+        "description": "An Italian-style palace built in 1872, now converted into a museum.",
+        "imageUrl": "https://images.unsplash.com/photo-1577495508326-19a1b3cf65b7?w=800",
+        "category": "Historical",
+        "rating": 4.5,
+        "tags": [
+            "palace",
+            "museum",
+            "architecture",
+            "heritage",
+            "colonial"
+        ],
+        "hotels": [
+            "hotel8"
+        ],
+        "restaurants": [
+            "rest9"
+        ]
+    },
+    {
+        "id": "89",
+        "name": "Lal Suhanra National Park",
+        "location": "Bahawalpur, Punjab",
+        "description": "A unique national park combining desert, forest, and wetland ecosystems.",
+        "imageUrl": "https://images.unsplash.com/photo-1505142468610-359e7d316be0?w=800",
+        "category": "Mountains",
+        "rating": 4.4,
+        "tags": [
+            "park",
+            "wildlife",
+            "desert",
+            "forest",
+            "nature"
+        ],
+        "hotels": [
+            "hotel8"
+        ],
+        "restaurants": [
+            "rest9"
+        ]
+    },
+    {
+        "id": "90",
+        "name": "Makli Necropolis",
+        "location": "Thatta, Sindh",
+        "description": "One of the largest funerary sites in the world, a UNESCO World Heritage Site.",
+        "imageUrl": "https://images.unsplash.com/photo-1548013146-72479768bada?w=800",
+        "category": "Historical",
+        "rating": 4.6,
+        "tags": [
+            "necropolis",
+            "unesco",
+            "tombs",
+            "history",
+            "architecture"
+        ],
+        "hotels": [
+            "hotel5"
+        ],
+        "restaurants": [
+            "rest5"
+        ]
+    },
+    {
+        "id": "91",
+        "name": "Shah Jahan Mosque",
+        "location": "Thatta, Sindh",
+        "description": "A magnificent 17th-century mosque with exceptional acoustics.",
+        "imageUrl": "https://images.unsplash.com/photo-1590415879678-5f78cd9b2af5?w=800",
+        "category": "Historical",
+        "rating": 4.7,
+        "tags": [
+            "mosque",
+            "mughal",
+            "architecture",
+            "history",
+            "acoustics"
+        ],
+        "hotels": [
+            "hotel5"
+        ],
+        "restaurants": [
+            "rest5"
+        ]
+    },
+    {
+        "id": "92",
+        "name": "Keenjhar Lake",
+        "location": "Thatta, Sindh",
+        "description": "The second-largest freshwater lake in Pakistan, popular for bird watching.",
+        "imageUrl": "https://images.unsplash.com/photo-1439066615861-d1af74d74000?w=800",
+        "category": "Lakes",
+        "rating": 4.5,
+        "tags": [
+            "lake",
+            "birds",
+            "nature",
+            "boating",
+            "picnic"
+        ],
+        "hotels": [
+            "hotel5"
+        ],
+        "restaurants": [
+            "rest5"
+        ]
+    },
+    {
+        "id": "93",
+        "name": "Chaukundi Tombs",
+        "location": "Karachi, Sindh",
+        "description": "Unique sandstone tombs with intricate geometric carvings.",
+        "imageUrl": "https://images.unsplash.com/photo-1548013146-72479768bada?w=800",
+        "category": "Historical",
+        "rating": 4.4,
+        "tags": [
+            "tombs",
+            "carvings",
+            "history",
+            "architecture",
+            "unique"
+        ],
+        "hotels": [
+            "hotel5"
+        ],
+        "restaurants": [
+            "rest5"
+        ]
+    },
+    {
+        "id": "94",
+        "name": "Manora Island",
+        "location": "Karachi, Sindh",
+        "description": "A small peninsula with beaches, lighthouse, and historical significance.",
+        "imageUrl": "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800",
+        "category": "Beaches",
+        "rating": 4.3,
+        "tags": [
+            "island",
+            "beach",
+            "lighthouse",
+            "history",
+            "fishing"
+        ],
+        "hotels": [
+            "hotel5"
+        ],
+        "restaurants": [
+            "rest6"
+        ]
+    },
+    {
+        "id": "95",
+        "name": "Hawksbay Beach",
+        "location": "Karachi, Sindh",
+        "description": "A popular beach destination known for turtle nesting and water sports.",
+        "imageUrl": "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800",
+        "category": "Beaches",
+        "rating": 4.4,
+        "tags": [
+            "beach",
+            "turtles",
+            "water_sports",
+            "nature",
+            "family"
+        ],
+        "hotels": [
+            "hotel5"
+        ],
+        "restaurants": [
+            "rest6"
+        ]
+    },
+    {
+        "id": "96",
+        "name": "Sandspit Beach",
+        "location": "Karachi, Sindh",
+        "description": "A serene beach with golden sand, perfect for camel and horse riding.",
+        "imageUrl": "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800",
+        "category": "Beaches",
+        "rating": 4.3,
+        "tags": [
+            "beach",
+            "sand",
+            "camel",
+            "horse",
+            "peaceful"
+        ],
+        "hotels": [
+            "hotel5"
+        ],
+        "restaurants": [
+            "rest6"
+        ]
+    },
+    {
+        "id": "97",
+        "name": "Port Grand",
+        "location": "Karachi, Sindh",
+        "description": "A waterfront entertainment complex with restaurants and cultural activities.",
+        "imageUrl": "https://images.unsplash.com/photo-1519904981063-b0cf448d479e?w=800",
+        "category": "Beaches",
+        "rating": 4.5,
+        "tags": [
+            "waterfront",
+            "entertainment",
+            "food",
+            "family",
+            "city"
+        ],
+        "hotels": [
+            "hotel5"
+        ],
+        "restaurants": [
+            "rest6"
+        ]
+    },
+    {
+        "id": "98",
+        "name": "Gorakh Hill Station",
+        "location": "Dadu, Sindh",
+        "description": "Sindh's only hill station, offering cold weather and stunning views.",
+        "imageUrl": "https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=800",
+        "category": "Mountains",
+        "rating": 4.6,
+        "tags": [
+            "hill_station",
+            "cold",
+            "view",
+            "camping",
+            "unique"
+        ],
+        "hotels": [
+            "hotel5"
+        ],
+        "restaurants": [
+            "rest5"
+        ]
+    },
+    {
+        "id": "99",
+        "name": "Kirthar National Park",
+        "location": "Sindh/Balochistan",
+        "description": "The second-largest national park in Pakistan, home to diverse wildlife.",
+        "imageUrl": "https://images.unsplash.com/photo-1505142468610-359e7d316be0?w=800",
+        "category": "Mountains",
+        "rating": 4.5,
+        "tags": [
+            "park",
+            "wildlife",
+            "nature",
+            "mountains",
+            "conservation"
+        ],
+        "hotels": [
+            "hotel6"
+        ],
+        "restaurants": [
+            "rest6"
+        ]
+    }
+]
